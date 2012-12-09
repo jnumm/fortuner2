@@ -10,7 +10,7 @@ It has about the same functionality as `fortuner`, but the implementation
 is lighter. `fortuner` is a C++ application and `fortuner2` is a shell
 script.
 
-The script runs at least in `bash`, `dash` and `zsh`.
+The script runs at least in `bash`, `dash`, `mksh` and `zsh` shells.
 
 Installation
 ------------

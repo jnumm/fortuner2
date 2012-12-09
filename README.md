@@ -15,13 +15,16 @@ Installation
 ------------
 
 1.  Install the requirements. An example for Debian GNU/Linux:
-    # aptitude install fortune-mod libnotify-bin
+
+    `# aptitude install fortune-mod libnotify-bin`
 
 2.  Clone the repository (get sources):
-    $ git clone git://github.com/jnumm/fortuner2.git
+
+    `$ git clone git://github.com/jnumm/fortuner2.git`
 
 3.  Now you can run Fortuner:
-    $ ./fortuner2
+
+    `$ ./fortuner2`
 
 Bugs
 ----
@@ -31,4 +34,4 @@ Please report bugs to our
 License
 -------
 fortuner2 is licensed under GNU GPL v3
-(see [COPYING](https://github.com/github/markup/blob/master/README.md)).
+(see [COPYING](https://github.com/jnumm/fortuner2/blob/master/COPYING)).

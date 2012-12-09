@@ -72,5 +72,12 @@ if [ "$1" = "--" ]; then
     fortunecmd="${fortunecmd} $@"
 fi
 
+fortune="$($fortunecmd)"
+
+if [ -z "$fortune" ]; then
+    eval_gettext "\${progname}: No fortune to show!"; echo
+    exit 1
+fi
+
 # Send the notification.
-$notifycmd "$title" "$($fortunecmd)"
+$notifycmd "$title" "$fortune"

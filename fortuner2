@@ -16,18 +16,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+. gettext.sh
+
 progname="fortuner2"
 appname="Fortuner"
 version="0.1.0"
 
-usagetext="Usage: ${progname} [option...]
+TEXTDOMAIN="$progname"
+export TEXTDOMAIN
+TEXTDOMAINDIR="locale"
+export TEXTDOMAINDIR
+
+usagetext="$(eval_gettext "Usage: \${progname} [option...]
 
  -h show help message and exit
  -v print program name and version and exit
  
- Everything after “--” is passed to fortune program."
+Everything after -- is passed to fortune program.")"
 
-title="Today's Fortune"
+title="$(eval_gettext "Today's Fortune")"
 
 fortunecmd="fortune"
 notifycmd="notify-send \
@@ -43,7 +50,7 @@ while getopts hv opt; do
             exit 0
             ;;
         v)
-            echo "${progname} version ${version}"
+            eval_gettext "\${progname} version \${version}"
             exit 0
             ;;
         \?)

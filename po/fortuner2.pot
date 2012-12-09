@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Juhani Numminen <juhaninumminen0@gmail.com>
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: fortuner2 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
+"POT-Creation-Date: 2012-12-09 14:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: fortuner2:30
+#, sh-format
+msgid ""
+"Usage: ${progname} [option...]\n"
+"\n"
+" -h show help message and exit\n"
+" -v print program name and version and exit\n"
+" \n"
+"Everything after -- is passed to fortune program."
+msgstr ""
+
+#: fortuner2:37
+#, sh-format
+msgid "Today's Fortune"
+msgstr ""
+
+#: fortuner2:53
+#, sh-format
+msgid "${progname} version ${version}"
+msgstr ""

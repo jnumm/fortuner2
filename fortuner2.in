@@ -2,17 +2,17 @@
 
 # fortuner2 – show a fortune as a notification
 # Copyright (C) 2012 Juhani Numminen <juhaninumminen0@gmail.com>
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -23,9 +23,9 @@ fi
 
 . gettext.sh
 
-progname="fortuner2"
+progname="@PACKAGE@"
 appname="Fortuner"
-version="0.1.0"
+version="@VERSION@"
 
 TEXTDOMAIN="$progname"
 export TEXTDOMAIN
@@ -36,7 +36,7 @@ usagetext="$(eval_gettext "Usage: \${progname} [option...] [-- fortuneoption...]
 
  -h  show help message and exit
  -v  print program name and version and exit
- 
+
 Everything after -- is passed to fortune program.
 For options supported by fortune, see man 6 fortune.")"
 

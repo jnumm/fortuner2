@@ -23,6 +23,13 @@ TRANSLATED =
 
 .PHONY: clean
 
+fortuner2:
+	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
+	-e "s/@VERSION@/$(VERSION)/" \
+	fortuner2.in > fortuner2
+
+	chmod +x fortuner2
+
 translations:
 	for lang in $(TRANSLATED); do \
 	mkdir -p locale/$$lang/LC_MESSAGES/; \
@@ -39,4 +46,4 @@ po/$(PACKAGE).pot:
 	fortuner2
 
 clean:
-	rm -rf locale/
+	rm -rf fortuner2 locale/

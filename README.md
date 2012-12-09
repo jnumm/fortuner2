@@ -23,9 +23,15 @@ Installation
 
     `$ git clone git://github.com/jnumm/fortuner2.git`
 
-3.  (Optional) to create translations run:
+3.  Create fortuner script from the template. (You can pass extra
+    parameters to make, e.g. PREFIX):
 
-    `make translations`
+    `$ make`
+
+4.  (Optional) To install (if you don't want to install to system root,
+    append DESTDIR= parameter):
+
+    `# make install`
 
 4.  Now you can run Fortuner:
 

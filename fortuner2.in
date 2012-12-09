@@ -29,7 +29,7 @@ version="@VERSION@"
 
 TEXTDOMAIN="$progname"
 export TEXTDOMAIN
-TEXTDOMAINDIR="locale"
+TEXTDOMAINDIR="@LOCALEDIR@"
 export TEXTDOMAINDIR
 
 usagetext="$(eval_gettext "Usage: \${progname} [option...] [-- fortuneoption...]

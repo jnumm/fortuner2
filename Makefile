@@ -18,14 +18,26 @@
 PACKAGE = fortuner2
 VERSION = 0.1.0
 
+# External programs.
+INSTALL = install -c
+
+# Directories.
+DESTDIR =
+PREFIX = /usr/local
+BINDIR = $(PREFIX)/bin
+LOCALEDIR = $(PREFIX)/share/locale
+
 # List of country codes which have a translation.
 TRANSLATED =
 
 .PHONY: clean
 
+all: fortuner2 translations
+
 fortuner2:
 	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
 	-e "s/@VERSION@/$(VERSION)/" \
+	-e "s/@LOCALEDIR@/$(subst /,\/,$(DESTDIR)$(LOCALEDIR))/" \
 	fortuner2.in > fortuner2
 
 	chmod +x fortuner2
@@ -44,6 +56,16 @@ po/$(PACKAGE).pot:
 	--package-name="$(PACKAGE)" --package-version="$(VERSION)" \
 	--msgid-bugs-address="https://github.com/jnumm/fortuner2/issues" \
 	fortuner2
+
+install:
+	$(INSTALL) -d $(DESTDIR)$(BINDIR)
+	$(INSTALL) fortuner2 $(DESTDIR)$(BINDIR)
+
+	for lang in $(TRANSLATED); do \
+	$(INSTALL) -d $(DESTDIR)$(LOCALEDIR)/$$lang/LC_MESSAGES; \
+	$(INSTALL) locale/$$lang/LC_MESSAGES/$(PACKAGE).mo \
+	$(DESTDIR)$(LOCALEDIR)/$$lang/LC_MESSAGES; \
+	done
 
 clean:
 	rm -rf fortuner2 locale/

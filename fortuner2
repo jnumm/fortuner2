@@ -32,12 +32,13 @@ export TEXTDOMAIN
 TEXTDOMAINDIR="locale"
 export TEXTDOMAINDIR
 
-usagetext="$(eval_gettext "Usage: \${progname} [option...]
+usagetext="$(eval_gettext "Usage: \${progname} [option...] [-- fortuneoption...]
 
- -h show help message and exit
- -v print program name and version and exit
+ -h  show help message and exit
+ -v  print program name and version and exit
  
-Everything after -- is passed to fortune program.")"
+Everything after -- is passed to fortune program.
+For options supported by fortune, see man 6 fortune.")"
 
 title="$(eval_gettext "Today's Fortune")"
 
@@ -55,7 +56,7 @@ while getopts hv opt; do
             exit 0
             ;;
         v)
-            eval_gettext "\${progname} version \${version}"
+            eval_gettext "\${progname} version \${version}"; echo
             exit 0
             ;;
         \?)

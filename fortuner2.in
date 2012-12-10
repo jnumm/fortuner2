@@ -34,8 +34,8 @@ export TEXTDOMAINDIR
 
 usagetext="$(eval_gettext "Usage: \${progname} [option...] [-- fortuneoption...]
 
- -h  show help message and exit
- -v  print program name and version and exit
+ -h, --help     show help message and exit
+ -v, --version  print program name and version and exit
 
 Everything after -- is passed to fortune program.
 For options supported by fortune, see man 6 fortune.")"
@@ -49,29 +49,31 @@ notifycmd="notify-send \
 --urgency=low"
 
 # Parse command line options.
-while getopts hv opt; do
-    case "$opt" in
-        h)
+while [ -n "$1" ]; do
+    case "$1" in
+        -h | --help)
             echo "$usagetext"
             exit 0
             ;;
-        v)
+        -v | --version)
             eval_gettext "\${progname} version \${version}"; echo
             exit 0
             ;;
-        \?)
-            # getopts issues an error message.
+        --)
+            # Everything after -- is passed to fortune.
+            shift
+            fortunecmd="$fortunecmd $@"
+            break
+            ;;
+        *)
+            arg="$1"
+            eval_gettext "\${progname}: Unknown argument: \${arg}"; echo
             echo "$usagetext" >&2
             exit 1
             ;;
     esac
-done
-
-# Everything after -- is passed to fortune.
-if [ "$1" = "--" ]; then
     shift
-    fortunecmd="${fortunecmd} $@"
-fi
+done
 
 fortune="$($fortunecmd)"
 

@@ -39,8 +39,9 @@ Installation
 
 Bugs
 ----
-Please report bugs to our
-[GitHub issue tracker](https://github.com/jnumm/fortuner2/issues).
+Please report bugs to fortuner2
+[GitHub issue tracker](https://github.com/jnumm/fortuner2/issues) or
+directly to the author [Juhani Numminen](mailto:juhaninumminen0@gmail.com).
 
 License
 -------

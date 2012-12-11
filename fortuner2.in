@@ -56,7 +56,7 @@ while [ -n "$1" ]; do
             exit 0
             ;;
         -v | --version)
-            eval_gettext "\${progname} version \${version}"; echo
+            echo "$progname $version"
             exit 0
             ;;
         --)

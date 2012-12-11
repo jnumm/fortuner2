@@ -34,7 +34,7 @@ TRANSLATED =
 
 all: fortuner2 translations
 
-fortuner2:
+fortuner2: fortuner2.in
 	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
 	-e "s/@VERSION@/$(VERSION)/" \
 	-e "s/@LOCALEDIR@/$(subst /,\/,$(DESTDIR)$(LOCALEDIR))/" \
@@ -50,8 +50,8 @@ translations:
 	po/$$lang.po; \
 	done
 
-po/$(PACKAGE).pot:
-	xgettext --output="po/$(PACKAGE).pot" --language="Shell" \
+po/fortuner2.pot: fortuner2
+	xgettext --output="po/fortuner2.pot" --language="Shell" \
 	--copyright-holder="Juhani Numminen <juhaninumminen0@gmail.com>" \
 	--package-name="$(PACKAGE)" --package-version="$(VERSION)" \
 	--msgid-bugs-address="https://github.com/jnumm/fortuner2/issues" \

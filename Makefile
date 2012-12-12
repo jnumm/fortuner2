@@ -28,7 +28,16 @@ BINDIR = $(PREFIX)/bin
 LOCALEDIR = $(PREFIX)/share/locale
 
 # List of country codes which have a translation.
-TRANSLATED =
+TRANSLATED = $(notdir $(basename $(wildcard po/*.po)))
+# List mo files to create.
+MOFILES = $(addprefix locale/,\
+$(addsuffix /LC_MESSAGES/$(PACKAGE).mo,$(TRANSLATED)))
+
+# Newline character
+define \n
+
+
+endef
 
 .PHONY: clean
 
@@ -42,13 +51,11 @@ fortuner2: fortuner2.in
 
 	chmod +x fortuner2
 
-translations:
-	for lang in $(TRANSLATED); do \
-	mkdir -p locale/$$lang/LC_MESSAGES/; \
-	msgfmt --output-file=locale/$$lang/LC_MESSAGES/$(PACKAGE).mo \
-	--verbose --statistics \
-	po/$$lang.po; \
-	done
+translations: $(MOFILES)
+
+locale/%/LC_MESSAGES/$(PACKAGE).mo: po/%.po
+	mkdir -p "$(dir $@)"
+	msgfmt --output-file="$@" --check --verbose --statistics "po/$*.po"
 
 po/fortuner2.pot: fortuner2
 	xgettext --output="po/fortuner2.pot" --language="Shell" \
@@ -61,11 +68,11 @@ install:
 	$(INSTALL) -d $(DESTDIR)$(BINDIR)
 	$(INSTALL) fortuner2 $(DESTDIR)$(BINDIR)
 
-	for lang in $(TRANSLATED); do \
-	$(INSTALL) -d $(DESTDIR)$(LOCALEDIR)/$$lang/LC_MESSAGES; \
-	$(INSTALL) locale/$$lang/LC_MESSAGES/$(PACKAGE).mo \
-	$(DESTDIR)$(LOCALEDIR)/$$lang/LC_MESSAGES; \
-	done
+	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
+	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
+	$(foreach lang,$(TRANSLATED),\
+	$(INSTALL) "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
+	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
 
 clean:
 	rm -rf fortuner2 locale/

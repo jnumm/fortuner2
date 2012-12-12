@@ -33,7 +33,7 @@ TRANSLATED = $(notdir $(basename $(wildcard po/*.po)))
 MOFILES = $(addprefix locale/,\
 $(addsuffix /LC_MESSAGES/$(PACKAGE).mo,$(TRANSLATED)))
 
-# Newline character
+# Newline character.
 define \n
 
 
@@ -41,32 +41,32 @@ endef
 
 .PHONY: clean
 
-all: fortuner2 translations
+all: $(PACKAGE) translations
 
-fortuner2: fortuner2.in
+$(PACKAGE): fortuner2.in
 	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
 	-e "s/@VERSION@/$(VERSION)/" \
 	-e "s/@LOCALEDIR@/$(subst /,\/,$(DESTDIR)$(LOCALEDIR))/" \
-	fortuner2.in > fortuner2
+	"$<" >"$(PACKAGE)"
 
-	chmod +x fortuner2
+	chmod +x "$(PACKAGE)"
 
 translations: $(MOFILES)
 
 locale/%/LC_MESSAGES/$(PACKAGE).mo: po/%.po
 	mkdir -p "$(dir $@)"
-	msgfmt --output-file="$@" --check --verbose --statistics "po/$*.po"
+	msgfmt --output-file="$@" --check --verbose --statistics "$<"
 
-po/fortuner2.pot: fortuner2
-	xgettext --output="po/fortuner2.pot" --language="Shell" \
+po/$(PACKAGE).pot: fortuner2.in
+	xgettext --output="$@" --language="Shell" \
 	--copyright-holder="Juhani Numminen <juhaninumminen0@gmail.com>" \
 	--package-name="$(PACKAGE)" --package-version="$(VERSION)" \
 	--msgid-bugs-address="https://github.com/jnumm/fortuner2/issues" \
-	fortuner2
+	"$<"
 
-install:
-	$(INSTALL) -d $(DESTDIR)$(BINDIR)
-	$(INSTALL) fortuner2 $(DESTDIR)$(BINDIR)
+install: $(PACKAGE) translations
+	$(INSTALL) -d "$(DESTDIR)$(BINDIR)"
+	$(INSTALL) "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
 
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
 	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
@@ -75,4 +75,4 @@ install:
 	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
 
 clean:
-	rm -rf fortuner2 locale/
+	rm -rf $(PACKAGE) locale

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fortuner2 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
-"POT-Creation-Date: 2012-12-09 14:10+0200\n"
+"POT-Creation-Date: 2012-12-12 16:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fortuner2:30
+#: fortuner2.in:35
 #, sh-format
 msgid ""
-"Usage: ${progname} [option...]\n"
+"Usage: ${progname} [option...] [-- fortuneoption...]\n"
 "\n"
-" -h show help message and exit\n"
-" -v print program name and version and exit\n"
-" \n"
-"Everything after -- is passed to fortune program."
+" -h, --help     show help message and exit\n"
+" -v, --version  print program name and version and exit\n"
+"\n"
+"Everything after -- is passed to fortune program.\n"
+"For options supported by fortune, see man 6 fortune."
 msgstr ""
 
-#: fortuner2:37
+#: fortuner2.in:43
 #, sh-format
 msgid "Today's Fortune"
 msgstr ""
 
-#: fortuner2:53
+#: fortuner2.in:70
 #, sh-format
-msgid "${progname} version ${version}"
+msgid "${progname}: Unknown argument: ${arg}"
+msgstr ""
+
+#: fortuner2.in:81
+#, sh-format
+msgid "${progname}: No fortune to show!"
 msgstr ""

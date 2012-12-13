@@ -68,11 +68,13 @@ install: $(PACKAGE) translations
 	$(INSTALL) -d "$(DESTDIR)$(BINDIR)"
 	$(INSTALL) "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
 
+ifneq ($(strip $(TRANSLATED)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
 	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
 	$(foreach lang,$(TRANSLATED),\
 	$(INSTALL) "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
 	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
+endif
 
 clean:
 	rm -rf $(PACKAGE) locale

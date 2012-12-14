@@ -26,6 +26,7 @@ DESTDIR =
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
 LOCALEDIR = $(PREFIX)/share/locale
+XDG_DESKTOP_DIR = $(PREFIX)/share/applications
 
 # List of country codes which have a translation.
 TRANSLATED = $(notdir $(basename $(wildcard po/*.po)))
@@ -67,6 +68,9 @@ po/$(PACKAGE).pot: fortuner2.in
 install: $(PACKAGE) translations
 	$(INSTALL) -d "$(DESTDIR)$(BINDIR)"
 	$(INSTALL) "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
+
+	desktop-file-install --dir="$(DESTDIR)$(XDG_DESKTOP_DIR)" \
+	"fortuner2.desktop"
 
 ifneq ($(strip $(TRANSLATED)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\

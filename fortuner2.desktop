@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Fortuner
+Comment=Shows a notification containing random adage
+Icon=fortuner
+TryExec=fortuner2
+Exec=fortuner2
+Terminal=false
+Categories=Game;Amusement;
+StartupNotify=false

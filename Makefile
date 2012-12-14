@@ -27,6 +27,7 @@ PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
 DATADIR = $(PREFIX)/share
 LOCALEDIR = $(DATADIR)/locale
+MANDIR = $(DATADIR)/man
 XDG_DESKTOP_DIR = $(DATADIR)/applications
 
 # List of country codes which have a translation.
@@ -80,6 +81,9 @@ ifneq ($(strip $(TRANSLATED)),)
 	$(INSTALL) "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
 	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
 endif
+
+	$(INSTALL) -d "$(MANDIR)/man6"
+	$(INSTALL) "doc/fortuner2.6" "$(MANDIR)/man6"
 
 clean:
 	rm -rf $(PACKAGE) locale

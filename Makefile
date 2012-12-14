@@ -25,8 +25,9 @@ INSTALL = install -c
 DESTDIR =
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
-LOCALEDIR = $(PREFIX)/share/locale
-XDG_DESKTOP_DIR = $(PREFIX)/share/applications
+DATADIR = $(PREFIX)/share
+LOCALEDIR = $(DATADIR)/locale
+XDG_DESKTOP_DIR = $(DATADIR)/applications
 
 # List of country codes which have a translation.
 TRANSLATED = $(notdir $(basename $(wildcard po/*.po)))

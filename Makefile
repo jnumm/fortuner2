@@ -78,12 +78,12 @@ ifneq ($(strip $(TRANSLATED)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
 	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
 	$(foreach lang,$(TRANSLATED),\
-	$(INSTALL) "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
+	$(INSTALL) --mode=644 "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
 	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
 endif
 
 	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
-	$(INSTALL) "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
+	$(INSTALL) --mode=644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
 
 clean:
 	rm -rf $(PACKAGE) locale

@@ -16,7 +16,7 @@
 
 # Name and version
 PACKAGE = fortuner2
-VERSION = 0.2.0
+VERSION = 0.2.1
 
 # External programs.
 INSTALL = install -c

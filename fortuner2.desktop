@@ -2,6 +2,7 @@
 Type=Application
 Name=Fortuner
 Comment=Shows a notification containing random adage
+Comment[fi]=Näyttää satunnaisen mietelauseen sisältävän ilmoituksen
 Icon=fortuner
 TryExec=fortuner2
 Exec=fortuner2

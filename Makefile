@@ -82,8 +82,8 @@ ifneq ($(strip $(TRANSLATED)),)
 	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
 endif
 
-	$(INSTALL) -d "$(MANDIR)/man6"
-	$(INSTALL) "doc/fortuner2.6" "$(MANDIR)/man6"
+	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
+	$(INSTALL) "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
 
 clean:
 	rm -rf $(PACKAGE) locale

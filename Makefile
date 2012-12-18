@@ -29,12 +29,16 @@ DATADIR = $(PREFIX)/share
 LOCALEDIR = $(DATADIR)/locale
 MANDIR = $(DATADIR)/man
 XDG_DESKTOP_DIR = $(DATADIR)/applications
+ICONDIR = $(DATADIR)/icons
 
 # List of country codes which have a translation.
 TRANSLATED = $(notdir $(basename $(wildcard po/*.po)))
 # List mo files to create.
 MOFILES = $(addprefix locale/,\
 $(addsuffix /LC_MESSAGES/$(PACKAGE).mo,$(TRANSLATED)))
+
+# List of icon sizes.
+ICONS = $(subst icons/,,$(wildcard icons/*))
 
 # Newline character.
 define \n
@@ -84,6 +88,14 @@ endif
 
 	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
 	$(INSTALL) --mode=644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
+
+ifneq ($(strip $(ICONS)),)
+	$(INSTALL) -d $(addprefix "$(DESTDIR)$(ICONDIR)/hicolor/,\
+	$(addsuffix /apps",$(ICONS)))
+	$(foreach size,$(ICONS),\
+	$(INSTALL) --mode=644 $(wildcard icons/$(size)/apps/*) \
+	"$(DESTDIR)$(ICONDIR)/hicolor/$(size)/apps"$(\n))
+endif
 
 clean:
 	rm -rf $(PACKAGE) locale

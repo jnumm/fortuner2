@@ -45,7 +45,7 @@ title="$(eval_gettext "Today's Fortune")"
 fortunecmd="fortune"
 notifycmd="notify-send \
 --app-name=${appname} \
---icon=fortuner \
+--icon=fortuner2 \
 --urgency=low"
 
 # Parse command line options.

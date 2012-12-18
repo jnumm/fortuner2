@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="128px"
+   height="128px"
+   id="fortuner2-icon"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="fortuner2.svg">
+  <title
+     id="title3809">Icon for Fortuner2</title>
+  <defs
+     id="defs3003">
+    <linearGradient
+       id="linearGradient3811">
+      <stop
+         style="stop-color:#fce979;stop-opacity:1;"
+         offset="0"
+         id="stop3813" />
+      <stop
+         style="stop-color:#e9d75e;stop-opacity:1;"
+         offset="1"
+         id="stop3815" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3811"
+       id="radialGradient5297"
+       cx="40.036633"
+       cy="12.27245"
+       fx="40.036633"
+       fy="12.27245"
+       r="19.351473"
+       gradientTransform="matrix(0.32840265,-2.1079049,4.2292371,0.65889724,16.91296,29.569575)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3811"
+       id="radialGradient5299"
+       cx="34.724644"
+       cy="-7.7533665"
+       fx="34.724644"
+       fy="-7.7533665"
+       r="28"
+       gradientTransform="matrix(0.7843834,-1.0873315,2.138544,1.5427111,49.344945,33.426128)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3811"
+       id="radialGradient5301"
+       cx="29.051126"
+       cy="41.266521"
+       fx="29.051126"
+       fy="41.266521"
+       r="19.351475"
+       gradientTransform="matrix(1.6797924,-1.3150698,3.0181792,3.8552435,-114.82116,-105.77177)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3811"
+       id="radialGradient5303"
+       cx="29.289301"
+       cy="50.806435"
+       fx="29.289301"
+       fy="50.806435"
+       r="22.738852"
+       gradientTransform="matrix(2.1333333,0,0,1.0478868,-3.4472837,-17.771113)"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       id="filter3937"
+       x="-1.0640641"
+       width="3.1281283"
+       y="-0.86455208"
+       height="2.7291043"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.0025674"
+         id="feGaussianBlur3939" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.0703125"
+     inkscape:cx="64"
+     inkscape:cy="44.345489"
+     inkscape:current-layer="scroll-layer"
+     showgrid="true"
+     inkscape:document-units="px"
+     inkscape:grid-bbox="true"
+     inkscape:window-width="1024"
+     inkscape:window-height="720"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata3006">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Icon for Fortuner2</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Juhani Numminen</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://www.gnu.org/licenses/gpl-3.0.html" />
+        <dc:date>2012-12-18</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="scroll-layer"
+     inkscape:label="Scroll"
+     inkscape:groupmode="layer"
+     transform="matrix(0.99999638,0,0,0.99708584,-1.0860678,68.636374)">
+    <path
+       style="fill:url(#radialGradient5303);fill-opacity:1;stroke:#2e3436;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 69.477554,57.983074 C 97.552136,51.408562 96.402661,44.501739 105.3124,31.108963 108.73149,21.230955 102.27129,15.628697 91.841586,12.953488 80.172471,13.330002 66.486766,21.496176 58.043613,20.378315 52.052198,19.615525 47.298862,18.650277 42.715656,17.778524 30.672145,26.77061 26.954948,41.46736 11.839957,37.362793"
+       id="path3773"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:url(#radialGradient5301);fill-opacity:1;stroke:#2e3436;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 29.470109,-5.4851498 C 24.265725,-1.3008934 7.1251139,4.3147566 30.643003,19.687026 51.102959,19.576583 68.579978,29.221208 86.782245,35.718074 79.514578,32.884489 72.69403,29.454213 76.727726,22.396414 81.407688,15.929654 93.647329,13.260718 98.498648,15.469972 76.067626,5.9131609 54.953829,-0.11051269 29.470109,-5.4851498 z"
+       id="path2997-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:url(#radialGradient5299);fill-opacity:1;stroke:#2e3436;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 77.352075,0.63578064 C 95.100223,-10.471667 133.65227,-38.181633 120.5897,-46.963504 l -71.412325,-1.406552 c 5.731354,4.096255 5.41715,10.892468 -1.067242,15.473191 -5.828613,4.287653 -14.386964,10.323548 -20.700344,14.064928 C 5.5315901,-5.806545 2.8818538,19.405093 9.7596473,37.588455 25.965979,40.477722 48.773004,58.339367 70.609206,58.030991 44.054002,48.836514 58.547323,7.2096089 77.352075,0.63578064 z"
+       id="path3013"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="fill:url(#radialGradient5297);fill-opacity:1;stroke:#2e3436;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 52.90586,-67.339166 c -5.204381,4.184258 -22.344997,9.799908 1.172896,25.172176 20.459954,-0.110442 37.936972,9.534185 56.139244,16.031048 -7.26767,-2.833585 -14.088217,-6.263863 -10.05452,-13.321657 4.67996,-6.46676 16.9196,-9.135699 21.77092,-6.926445 -22.431019,-9.556811 -43.544818,-15.580485 -69.02854,-20.955122 z"
+       id="path2997"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.7;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter3937)"
+       id="path3763-3"
+       sodipodi:cx="48.816154"
+       sodipodi:cy="9.1734867"
+       sodipodi:rx="2.2583985"
+       sodipodi:ry="2.7795675"
+       d="m 51.074553,9.1734867 a 2.2583985,2.7795675 0 1 1 -4.516797,0 2.2583985,2.7795675 0 1 1 4.516797,0 z"
+       transform="matrix(3.3038136,0,0,5.4780961,-142.98537,-34.634987)" />
+  </g>
+</svg>

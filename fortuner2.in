@@ -44,9 +44,16 @@ title="$(eval_gettext "Today's Fortune")"
 
 fortunecmd="fortune"
 notifycmd="notify-send \
---app-name=${appname} \
 --icon=fortuner2 \
 --urgency=low"
+
+notifyversion="$(notify-send --version | awk '{ print $2 }')"
+
+# Option app-name was added to notify-send in version 0.7.5.
+if [ "$(echo "${notifyversion}\n0.7.5" | sort -t '.' -g | tail -n 1)" \
+= "${notifyversion}" ]; then
+    notifycmd="${notifycmd} --app-name=${appname}"
+fi
 
 # Parse command line options.
 while [ -n "$1" ]; do

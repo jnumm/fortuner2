@@ -3,7 +3,7 @@
 # It should be updated at every release.
 Name:           fortuner2
 Version:        0.2.2
-Release:        1
+Release:        2
 Summary:        Shows fortunes as notifications
 # Red Hat group
 Group:          Amusements/Games
@@ -35,11 +35,11 @@ script.
 %setup -q
 
 %build
-make %{?_smp_mflags} PREFIX=/usr
+make %{?_smp_mflags} PREFIX=%{_prefix}
 
 %install
 rm -rf %{buildroot}
-make install PREFIX=/usr DESTDIR=%{buildroot}
+make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %find_lang %{name}
 
@@ -47,8 +47,10 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %doc README.md COPYING
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/man/man6/%{name}.6.gz
+%{_mandir}/man6/%{name}.6.gz
 
 %changelog
+* Mon Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
+- Use _prefix macro instead of /usr and _mandir instead of _datadir/man
 * Sat Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-1
 - Initial RPM release

@@ -7,6 +7,8 @@ Release:        2
 Summary:        Shows fortunes as notifications
 # Red Hat group
 Group:          Amusements/Games
+# OpenSUSE group
+#Group:          Amusements/Toys/Other
 # Mandriva group
 #Group:          Toys
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -53,5 +55,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 * Mon Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
 - Use _prefix macro instead of /usr and _mandir instead of _datadir/man
 - Give install after variable overrides in install step
+- Add OpenSUSE Group tag alternative
 * Sat Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-1
 - Initial RPM release

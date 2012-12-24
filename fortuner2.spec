@@ -39,7 +39,7 @@ make %{?_smp_mflags} PREFIX=%{_prefix}
 
 %install
 rm -rf %{buildroot}
-make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
+make PREFIX=%{_prefix} DESTDIR=%{buildroot} install
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %find_lang %{name}
 
@@ -52,5 +52,6 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %changelog
 * Mon Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
 - Use _prefix macro instead of /usr and _mandir instead of _datadir/man
+- Give install after variable overrides in install step
 * Sat Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-1
 - Initial RPM release

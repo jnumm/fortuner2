@@ -52,11 +52,24 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*
 %{_mandir}/man6/%{name}.6.gz
 
+%post
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+
+%postun
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+fi
+
+%posttrans
+/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+
 %changelog
 * Tue Dec 25 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.3.0-1
 - Update to 0.3.0
   + Use --app-name only if notify-send is new enough
   + Icons
+- Add icon cache scriptlets
 * Mon Dec 24 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
 - Use _prefix macro instead of /usr and _mandir instead of _datadir/man
 - Give install after variable overrides in install step

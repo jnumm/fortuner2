@@ -70,9 +70,12 @@ fi
   + Use --app-name only if notify-send is new enough
   + Icons
 - Add icon cache scriptlets
+- Add spacing to the changelog to improve readability
+
 * Mon Dec 24 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
 - Use _prefix macro instead of /usr and _mandir instead of _datadir/man
 - Give install after variable overrides in install step
 - Add OpenSUSE Group tag alternative
+
 * Sat Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-1
 - Initial RPM release

@@ -52,7 +52,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %{_mandir}/man6/%{name}.6.gz
 
 %changelog
-* Mon Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
+* Mon Dec 24 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
 - Use _prefix macro instead of /usr and _mandir instead of _datadir/man
 - Give install after variable overrides in install step
 - Add OpenSUSE Group tag alternative

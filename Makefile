@@ -75,7 +75,7 @@ install: $(PACKAGE) translations
 	$(INSTALL) -d "$(DESTDIR)$(BINDIR)"
 	$(INSTALL) "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
 
-	desktop-file-install --dir="$(DESTDIR)$(XDG_DESKTOP_DIR)" \
+	desktop-file-install --dir="$(abspath $(DESTDIR)$(XDG_DESKTOP_DIR))" \
 	"fortuner2.desktop"
 
 ifneq ($(strip $(TRANSLATED)),)

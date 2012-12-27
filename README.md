@@ -38,6 +38,20 @@ Installation
 
     `$ ./fortuner2`
 
+Packages
+--------
+If you're looking for installable packages, there exists a package for
+Ubuntu/Debian in
+[Juhani Numminen's Launchpad PPA](https://launchpad.net/~jsonic/+archive/ppa/)
+(The packages will be published for the development version of Ubuntu,
+currently `raring`.
+
+If you would like to package fortuner for your distribution, please have
+a look on
+[DEB](http://bazaar.launchpad.net/~jsonic/+junk/fortuner2-ppa/files) and
+[RPM](https://github.com/jnumm/fortuner2/blob/rpm/fortuner2.spec)
+packaging files that are maintained by upstream.
+
 I18n
 ----
 Available translations are compiled and installed by default. To prevent

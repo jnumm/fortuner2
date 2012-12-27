@@ -20,6 +20,7 @@ VERSION = 0.3.0
 
 # External programs.
 INSTALL = install -c
+MANCOMPRESS = gzip -9
 
 # Directories.
 DESTDIR =
@@ -88,7 +89,7 @@ endif
 
 	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
 	$(INSTALL) --mode=644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
-	gzip -9 "$(DESTDIR)$(MANDIR)/man6/fortuner2.6"
+	$(MANCOMPRESS) "$(DESTDIR)$(MANDIR)/man6/fortuner2.6"
 
 ifneq ($(strip $(ICONS)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(ICONDIR)/hicolor/,\

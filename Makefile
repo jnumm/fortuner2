@@ -27,6 +27,7 @@ DESTDIR =
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
 DATADIR = $(PREFIX)/share
+SYSCONFDIR = $(PREFIX)/etc
 LOCALEDIR = $(DATADIR)/locale
 MANDIR = $(DATADIR)/man
 XDG_DESKTOP_DIR = $(DATADIR)/applications
@@ -54,6 +55,7 @@ all: $(PACKAGE) translations
 $(PACKAGE): fortuner2.in
 	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
 	-e "s/@VERSION@/$(VERSION)/" \
+	-e "s/@SYSCONFDIR@/$(subst /,\/,$(DESTDIR)$(SYSCONFDIR))/" \
 	-e "s/@LOCALEDIR@/$(subst /,\/,$(DESTDIR)$(LOCALEDIR))/" \
 	"$<" >"$(PACKAGE)"
 

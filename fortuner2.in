@@ -47,6 +47,22 @@ notifycmd="notify-send \
 --icon=fortuner2 \
 --urgency=low"
 
+# Load the system wide config file, if it exists.
+if [ -f "@SYSCONFDIR@/${progname}.conf" ]; then
+    . "@SYSCONFDIR@/${progname}.conf"
+fi
+
+# Respect XDG user directories.
+if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs" ]; then
+    . "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs"
+fi
+
+# Load the config file, if it exists.
+if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf" ]
+then
+    . "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf"
+fi
+
 notifyversion="$(notify-send --version | awk '{ print $2 }')"
 
 # Option app-name was added to notify-send in version 0.7.5.

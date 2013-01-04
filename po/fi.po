@@ -1,14 +1,14 @@
 # Finnish translations for fortuner2 package.
-# Copyright (C) 2012 Juhani Numminen <juhaninumminen0@gmail.com>
+# Copyright (C) 2012-2013 Juhani Numminen <juhaninumminen0@gmail.com>
 # This file is distributed under the same license as the fortuner2 package.
-# Juhani Numminen <juhaninumminen0@gmail.com>, 2012.
+# Juhani Numminen <juhaninumminen0@gmail.com>, 2012-2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fortuner2 0.1.0\n"
+"Project-Id-Version: fortuner2 0.4.0\n"
 "Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
 "POT-Creation-Date: 2013-01-04 13:18+0200\n"
-"PO-Revision-Date: 2012-12-12 21:22+0200\n"
+"PO-Revision-Date: 2013-01-04 18:07+0200\n"
 "Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>\n"
 "Language-Team: Finnish\n"
 "Language: fi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: fortuner2.in:35
-#, fuzzy, sh-format
+#, sh-format
 msgid ""
 "Usage: ${progname} [option...] [-- fortuneoption...]\n"
 "\n"
@@ -31,6 +31,7 @@ msgid ""
 msgstr ""
 "Käyttö: ${progname} [valitsin...] [-- fortune-valitsin...]\n"
 "\n"
+" -n, --notifycmd OHJELMA  lähetä huomautus OHJELMALLA\n"
 " -h, --help     näytä ohjeviesti ja poistu\n"
 " -v, --version  näytä ohjelman nimi ja versio ja poistu\n"
 "\n"

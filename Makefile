@@ -1,5 +1,5 @@
 # Makefile for fortuner2
-# Copyright (C) 2012 Juhani Numminen <juhaninumminen0@gmail.com>
+# Copyright (C) 2012-2013 Juhani Numminen <juhaninumminen0@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 
 # Name and version
 PACKAGE = fortuner2
-VERSION = 0.3.0
+VERSION = 0.4.0
 
 # External programs.
 INSTALL = install -c

@@ -37,11 +37,11 @@ script.
 %setup -q
 
 %build
-make %{?_smp_mflags} PREFIX=%{_prefix}
+make %{?_smp_mflags} PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
 
 %install
 rm -rf %{buildroot}
-make PREFIX=%{_prefix} DESTDIR=%{buildroot} install
+make PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir} DESTDIR=%{buildroot} install
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %find_lang %{name}
 
@@ -68,6 +68,7 @@ fi
 * Sat Jan 05 2013 Juhani Numminen <juhaninumminen0@gmail.com> - 0.4.0-1
 - Update to 0.4.0
   + Configuration file support
+- Define SYSCONFDIR in make commands
 
 * Tue Dec 25 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.3.0-1
 - Update to 0.3.0

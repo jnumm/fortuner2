@@ -1,6 +1,10 @@
 # RPM spec file for fortuner2.
 # It's written by upstream and aims to be distro-neutral.
 # It should be updated at every release.
+
+# Installation directories for the Makefile of the package.
+%global directories PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
+
 Name:           fortuner2
 Version:        0.4.0
 Release:        1
@@ -37,11 +41,11 @@ script.
 %setup -q
 
 %build
-make %{?_smp_mflags} PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
+make %{?_smp_mflags} %{directories}
 
 %install
 rm -rf %{buildroot}
-make PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir} DESTDIR=%{buildroot} install
+make %{directories} DESTDIR=%{buildroot} install
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %find_lang %{name}
 
@@ -69,6 +73,7 @@ fi
 - Update to 0.4.0
   + Configuration file support
 - Define SYSCONFDIR in make commands
+- Move installation directories into a variable
 
 * Tue Dec 25 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.3.0-1
 - Update to 0.3.0

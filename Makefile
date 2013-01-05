@@ -1,5 +1,5 @@
 # Makefile for fortuner2
-# Copyright (C) 2012 Juhani Numminen <juhaninumminen0@gmail.com>
+# Copyright (C) 2012-2013 Juhani Numminen <juhaninumminen0@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,16 +16,18 @@
 
 # Name and version
 PACKAGE = fortuner2
-VERSION = 0.3.0
+VERSION = 0.4.0
 
 # External programs.
 INSTALL = install -c
+MANCOMPRESS = gzip -9
 
 # Directories.
 DESTDIR =
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
 DATADIR = $(PREFIX)/share
+SYSCONFDIR = $(PREFIX)/etc
 LOCALEDIR = $(DATADIR)/locale
 MANDIR = $(DATADIR)/man
 XDG_DESKTOP_DIR = $(DATADIR)/applications
@@ -53,6 +55,7 @@ all: $(PACKAGE) translations
 $(PACKAGE): fortuner2.in
 	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
 	-e "s/@VERSION@/$(VERSION)/" \
+	-e "s/@SYSCONFDIR@/$(subst /,\/,$(DESTDIR)$(SYSCONFDIR))/" \
 	-e "s/@LOCALEDIR@/$(subst /,\/,$(DESTDIR)$(LOCALEDIR))/" \
 	"$<" >"$(PACKAGE)"
 
@@ -88,7 +91,7 @@ endif
 
 	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
 	$(INSTALL) --mode=644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
-	gzip -9 "$(DESTDIR)$(MANDIR)/man6/fortuner2.6"
+	$(MANCOMPRESS) "$(DESTDIR)$(MANDIR)/man6/fortuner2.6"
 
 ifneq ($(strip $(ICONS)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(ICONDIR)/hicolor/,\

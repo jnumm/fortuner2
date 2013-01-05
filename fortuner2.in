@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # fortuner2 – show a fortune as a notification
-# Copyright (C) 2012 Juhani Numminen <juhaninumminen0@gmail.com>
+# Copyright (C) 2012-2013 Juhani Numminen <juhaninumminen0@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@ export TEXTDOMAINDIR
 
 usagetext="$(eval_gettext "Usage: \${progname} [option...] [-- fortuneoption...]
 
+ -n, --notifycmd COMMAND  send the notify to COMMAND
  -h, --help     show help message and exit
  -v, --version  print program name and version and exit
 
@@ -47,6 +48,22 @@ notifycmd="notify-send \
 --icon=fortuner2 \
 --urgency=low"
 
+# Load the system wide config file, if it exists.
+if [ -f "@SYSCONFDIR@/${progname}.conf" ]; then
+    . "@SYSCONFDIR@/${progname}.conf"
+fi
+
+# Respect XDG user directories.
+if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs" ]; then
+    . "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs"
+fi
+
+# Load the config file, if it exists.
+if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf" ]
+then
+    . "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf"
+fi
+
 notifyversion="$(notify-send --version | awk '{ print $2 }')"
 
 # Option app-name was added to notify-send in version 0.7.5.
@@ -58,6 +75,10 @@ fi
 # Parse command line options.
 while [ -n "$1" ]; do
     case "$1" in
+        -n | --notifycmd)
+            shift
+            notifycmd="$1"
+            ;;
         -h | --help)
             echo "$usagetext"
             exit 0

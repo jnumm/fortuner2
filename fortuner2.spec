@@ -50,7 +50,7 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc README.md COPYING
+%doc README.md COPYING doc/fortuner2.conf.ex
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*
@@ -74,6 +74,7 @@ fi
   + Configuration file support
 - Define SYSCONFDIR in make commands
 - Move installation directories into a variable
+- Install the example config file as documentation
 
 * Tue Dec 25 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.3.0-1
 - Update to 0.3.0

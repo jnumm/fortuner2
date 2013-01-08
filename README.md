@@ -40,16 +40,18 @@ Installation
 
 Packages
 --------
-If you're looking for installable packages, there exists a package for
+If you're looking for installable packages, there are packages for
 Ubuntu/Debian in
 [Juhani Numminen's Launchpad PPA](https://launchpad.net/~jsonic/+archive/ppa/)
-(The packages will be published for the development version of Ubuntu,
-currently `raring`.
+(the packages will be published for the development version of Ubuntu,
+currently `raring`) and Arch Linux in the
+[AUR](https://aur.archlinux.org/packages/fortuner2/).
 
 If you would like to package fortuner for your distribution, please have
 a look on
-[DEB](http://bazaar.launchpad.net/~jsonic/+junk/fortuner2-ppa/files) and
-[RPM](https://github.com/jnumm/fortuner2/blob/rpm/fortuner2.spec)
+[DEB](http://bazaar.launchpad.net/~jsonic/+junk/fortuner2-ppa/files),
+[RPM](https://github.com/jnumm/fortuner2/blob/rpm/fortuner2.spec) and
+[Arch Linux](https://github.com/jnumm/fortuner2/tree/arch-pkg)
 packaging files that are maintained by upstream.
 
 I18n

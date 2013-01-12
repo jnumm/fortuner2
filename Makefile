@@ -85,12 +85,12 @@ ifneq ($(strip $(TRANSLATED)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
 	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
 	$(foreach lang,$(TRANSLATED),\
-	$(INSTALL) --mode=644 "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
+	$(INSTALL) -m 644 "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
 	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
 endif
 
 	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
-	$(INSTALL) --mode=644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
+	$(INSTALL) -m 644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
 
 ifneq ($(strip $(MANCOMPRESS)),)
 	$(MANCOMPRESS) "$(DESTDIR)$(MANDIR)/man6/fortuner2.6"
@@ -100,7 +100,7 @@ ifneq ($(strip $(ICONS)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(ICONDIR)/hicolor/,\
 	$(addsuffix /apps",$(ICONS)))
 	$(foreach size,$(ICONS),\
-	$(INSTALL) --mode=644 $(wildcard icons/$(size)/apps/*) \
+	$(INSTALL) -m 644 $(wildcard icons/$(size)/apps/*) \
 	"$(DESTDIR)$(ICONDIR)/hicolor/$(size)/apps"$(\n))
 endif
 

@@ -34,6 +34,10 @@ export TEXTDOMAINDIR
 usagetext="$(eval_gettext "\
 Usage: \${progname} [option...] [-- fortuneoption...]
 
+ -c COUNT, --count COUNT
+                how many fortunes to show
+ -d SECONDS, --delay SECONDS
+                sleep SECONDS after sending each fortune
  -n COMMAND, --notifycmd COMMAND
                 send the notify to COMMAND
  -h, --help     show help message and exit
@@ -46,6 +50,9 @@ title="$(eval_gettext "Today's Fortune")"
 
 fortunecmd="fortune"
 notifycmd="notify-send --icon=fortuner2 --urgency=low"
+
+count=1
+delay=0
 
 if [ -f "@SYSCONFDIR@/${progname}.conf" ]; then
     . "@SYSCONFDIR@/${progname}.conf"
@@ -69,6 +76,22 @@ fi
 
 while [ -n "$1" ]; do
     case "$1" in
+        -c | --count)
+            shift
+            count="$1"
+            if [ -z "${count##*[!0-9]*}" ]; then
+			    gettext "Count must be a number!"; echo
+			    exit 1
+            fi
+            ;;
+        -d | --delay)
+            shift
+            delay="$1"
+            if [ -z "${delay##*[!0-9]*}" ]; then
+			    gettext "Delay must be a number!"; echo
+                exit 1
+            fi
+            ;;
         -n | --notifycmd)
             shift
             notifycmd="$1"
@@ -96,11 +119,19 @@ while [ -n "$1" ]; do
     shift
 done
 
-fortune="$($fortunecmd)"
+while [ $count -gt 0 ]; do
+    fortune="$($fortunecmd)"
 
-if [ -z "$fortune" ]; then
-    eval_gettext "\${progname}: No fortune to show!"; echo
-    exit 1
-fi
+    if [ -z "$fortune" ]; then
+        eval_gettext "\${progname}: No fortune to show!"; echo
+        exit 1
+    fi
 
-$notifycmd "$title" "$fortune"
+    $notifycmd "$title" "$fortune"
+
+    count=$(expr $count - 1)
+
+    if [ $delay -ne 0 ]; then
+        sleep $delay
+    fi
+done

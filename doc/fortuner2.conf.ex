@@ -25,3 +25,15 @@
 #notifycmd="notify-send --icon=fortuner2 --urgency=low"
 # Example custom value:
 #notifycmd="$notifycmd --expire-time=10000"
+
+# How many fortunes are shown.
+# Default value:
+#count=1
+# Example custom value:
+#count=2
+
+# Time (in seconds) to sleep after displaying each fortune.
+# Default value:
+#delay=0
+# Example custom value:
+#delay=5

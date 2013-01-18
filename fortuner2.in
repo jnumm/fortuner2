@@ -34,7 +34,8 @@ export TEXTDOMAINDIR
 
 usagetext="$(eval_gettext "Usage: \${progname} [option...] [-- fortuneoption...]
 
- -n, --notifycmd COMMAND  send the notify to COMMAND
+ -n COMMAND, --notifycmd COMMAND
+                send the notify to COMMAND
  -h, --help     show help message and exit
  -v, --version  print program name and version and exit
 

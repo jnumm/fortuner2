@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: fortuner2 0.4.0\n"
+"Project-Id-Version: fortuner2 0.5.1\n"
 "Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
-"POT-Creation-Date: 2013-01-04 13:18+0200\n"
-"PO-Revision-Date: 2013-01-04 18:07+0200\n"
+"POT-Creation-Date: 2013-01-19 17:22+0200\n"
+"PO-Revision-Date: 2013-01-19 16:58+0200\n"
 "Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>\n"
 "Language-Team: Finnish\n"
 "Language: fi\n"
@@ -17,12 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: fortuner2.in:35
+#: fortuner2.in:34
 #, sh-format
 msgid ""
 "Usage: ${progname} [option...] [-- fortuneoption...]\n"
 "\n"
-" -n, --notifycmd COMMAND  send the notify to COMMAND\n"
+" -c COUNT, --count COUNT\n"
+"                how many fortunes to show\n"
+" -d SECONDS, --delay SECONDS\n"
+"                sleep SECONDS after sending each fortune\n"
+" -n COMMAND, --notifycmd COMMAND\n"
+"                send the notify to COMMAND\n"
 " -h, --help     show help message and exit\n"
 " -v, --version  print program name and version and exit\n"
 "\n"
@@ -31,24 +36,37 @@ msgid ""
 msgstr ""
 "Käyttö: ${progname} [valitsin...] [-- fortune-valitsin...]\n"
 "\n"
-" -n, --notifycmd OHJELMA  lähetä huomautus OHJELMALLA\n"
+" -c MÄÄRÄ, --count MÄÄRÄ\n"
+"                näytä tämä MÄÄRÄ ilmoituksia\n"
+" -d SEKUNTIA, --delay SEKUNTIA\n"
+"                pidä taukoa jokaisen ilmoitusten välissä\n"
+" -n OHJELMA, --notifycmd OHJELMA\n"
+"                lähetä ilmoitus OHJELMALLA\n"
 " -h, --help     näytä ohjeviesti ja poistu\n"
 " -v, --version  näytä ohjelman nimi ja versio ja poistu\n"
 "\n"
 "Kaikki valitsimen ”--” jälkeen välitetään fortune-ohjelmalle.\n"
 "Katso fortunen tukemat valitsimet: man 6 fortune."
 
-#: fortuner2.in:44
+#: fortuner2.in:49
 #, sh-format
 msgid "Today's Fortune"
 msgstr "Päivän onnenkeksi"
 
-#: fortuner2.in:98
+#: fortuner2.in:83
+msgid "Count must be a number!"
+msgstr "Määrän on oltava numero!"
+
+#: fortuner2.in:91
+msgid "Delay must be a number!"
+msgstr "Viiveen on oltava numero!"
+
+#: fortuner2.in:114
 #, sh-format
 msgid "${progname}: Unknown argument: ${arg}"
 msgstr "${progname}: Tunnistamaton valitsin: ${arg}"
 
-#: fortuner2.in:109
+#: fortuner2.in:126
 #, sh-format
 msgid "${progname}: No fortune to show!"
 msgstr "${progname}: Ei näytettävää onnenkeksiä!"

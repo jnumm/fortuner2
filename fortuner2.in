@@ -16,7 +16,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Set sh_word_split for zsh compatibility.
 if [ -n "$ZSH_VERSION" ]; then
     setopt sh_word_split
 fi
@@ -32,9 +31,15 @@ export TEXTDOMAIN
 TEXTDOMAINDIR="@LOCALEDIR@"
 export TEXTDOMAINDIR
 
-usagetext="$(eval_gettext "Usage: \${progname} [option...] [-- fortuneoption...]
+usagetext="$(eval_gettext "\
+Usage: \${progname} [option...] [-- fortuneoption...]
 
- -n, --notifycmd COMMAND  send the notify to COMMAND
+ -c COUNT, --count COUNT
+                how many fortunes to show
+ -d SECONDS, --delay SECONDS
+                sleep SECONDS after sending each fortune
+ -n COMMAND, --notifycmd COMMAND
+                send the notify to COMMAND
  -h, --help     show help message and exit
  -v, --version  print program name and version and exit
 
@@ -44,21 +49,19 @@ For options supported by fortune, see man 6 fortune.")"
 title="$(eval_gettext "Today's Fortune")"
 
 fortunecmd="fortune"
-notifycmd="notify-send \
---icon=fortuner2 \
---urgency=low"
+notifycmd="notify-send --icon=fortuner2 --urgency=low"
 
-# Load the system wide config file, if it exists.
+count=1
+delay=0
+
 if [ -f "@SYSCONFDIR@/${progname}.conf" ]; then
     . "@SYSCONFDIR@/${progname}.conf"
 fi
 
-# Respect XDG user directories.
 if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs" ]; then
     . "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs"
 fi
 
-# Load the config file, if it exists.
 if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf" ]
 then
     . "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf"
@@ -66,15 +69,29 @@ fi
 
 notifyversion="$(notify-send --version | awk '{ print $2 }')"
 
-# Option app-name was added to notify-send in version 0.7.5.
 if [ "$(echo "${notifyversion}\n0.7.5" | sort -t '.' -g | tail -n 1)" \
 = "${notifyversion}" ]; then
     notifycmd="${notifycmd} --app-name=${appname}"
 fi
 
-# Parse command line options.
 while [ -n "$1" ]; do
     case "$1" in
+        -c | --count)
+            shift
+            count="$1"
+            if [ -z "${count##*[!0-9]*}" ]; then
+			    gettext "Count must be a number!"; echo
+			    exit 1
+            fi
+            ;;
+        -d | --delay)
+            shift
+            delay="$1"
+            if [ -z "${delay##*[!0-9]*}" ]; then
+			    gettext "Delay must be a number!"; echo
+                exit 1
+            fi
+            ;;
         -n | --notifycmd)
             shift
             notifycmd="$1"
@@ -88,7 +105,6 @@ while [ -n "$1" ]; do
             exit 0
             ;;
         --)
-            # Everything after -- is passed to fortune.
             shift
             fortunecmd="$fortunecmd $@"
             break
@@ -103,12 +119,19 @@ while [ -n "$1" ]; do
     shift
 done
 
-fortune="$($fortunecmd)"
+while [ $count -gt 0 ]; do
+    fortune="$($fortunecmd)"
 
-if [ -z "$fortune" ]; then
-    eval_gettext "\${progname}: No fortune to show!"; echo
-    exit 1
-fi
+    if [ -z "$fortune" ]; then
+        eval_gettext "\${progname}: No fortune to show!"; echo
+        exit 1
+    fi
 
-# Send the notification.
-$notifycmd "$title" "$fortune"
+    $notifycmd "$title" "$fortune"
+
+    count=$(expr $count - 1)
+
+    if [ $delay -ne 0 ]; then
+        sleep $delay
+    fi
+done

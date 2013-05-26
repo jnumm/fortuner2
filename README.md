@@ -44,7 +44,7 @@ If you're looking for installable packages, there are packages for
 Ubuntu/Debian in
 [Juhani Numminen's Launchpad PPA](https://launchpad.net/~jsonic/+archive/ppa/)
 (the packages will be published for the development version of Ubuntu,
-currently `raring`) and Arch Linux in the
+currently "saucy") and Arch Linux in the
 [AUR](https://aur.archlinux.org/packages/fortuner2/).
 
 If you would like to package fortuner for your distribution, please have

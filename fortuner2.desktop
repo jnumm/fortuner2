@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
+Version=1.0
 Name=Fortuner
 Comment=Shows a notification containing random adage
 Comment[de]=Zeigt eine Meldung mit einem zufälligen Sprichwort
@@ -9,4 +10,5 @@ TryExec=fortuner2
 Exec=fortuner2
 Terminal=false
 Categories=Game;Amusement;
+Keywords=fortune;
 StartupNotify=false

@@ -36,17 +36,17 @@ msgid ""
 msgstr ""
 "Utilisation : ${progname} [argument...] [-- argument(s) pour fortune...]\n"
 "\n"
-" -c QUANTITÉ, --count QUANTITÉ\n"
-"                le nombre de citations à afficher\n"
+" -c QUANTITÃ‰, --count QUANTITÃ‰\n"
+"                le nombre de citations Ã  afficher\n"
 " -d SECONDES, --delay SECONDES\n"
-"                attendre SECONDES après chaque citation\n"
+"                attendre SECONDES aprÃ¨s chaque citation\n"
 " -n COMMANDE, --notifycmd COMMANDE\n"
-"                envoyer la notification à COMMANDE\n"
+"                envoyer la notification Ã  COMMANDE\n"
 " -h, --help     afficher et l'aide et quitter\n"
 " -v, --version  afficher des informations de version et quitter\n"
 "\n"
-"Tout argument après -- est passé au programme fortune.\n"
-"Pour afficher une liste des options supportées par fortune : man 6 fortune."
+"Tout argument aprÃ¨s -- est passÃ© au programme fortune.\n"
+"Pour afficher une liste des options supportÃ©es par fortune : man 6 fortune."
 
 #: fortuner2.in:49
 #, sh-format
@@ -55,11 +55,11 @@ msgstr "La citation du jour"
 
 #: fortuner2.in:83
 msgid "Count must be a number!"
-msgstr "La quantité doit être un nombre !"
+msgstr "La quantitÃ© doit Ãªtre un nombre !"
 
 #: fortuner2.in:91
 msgid "Delay must be a number!"
-msgstr "Le délai doit être un nombre !"
+msgstr "Le dÃ©lai doit Ãªtre un nombre !"
 
 #: fortuner2.in:114
 #, sh-format
@@ -69,4 +69,4 @@ msgstr "${progname}: Argument inconnu: ${arg}"
 #: fortuner2.in:126
 #, sh-format
 msgid "${progname}: No fortune to show!"
-msgstr "${progname}: Aucune citation à afficher !"
+msgstr "${progname}: Aucune citation Ã  afficher !"

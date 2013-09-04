@@ -1,0 +1,72 @@
+# French translations for fortuner2 package.
+# Copyright (C) 2012-2013 Nicolas Gaulard-Querol <nicolas.gquerol@gmail.com>
+# This file is distributed under the same license as the fortuner2 package.
+# Nicolas Gaulard-Querol <nicolas.gquerol@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: fortuner2 0.5.1\n"
+"Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
+"POT-Creation-Date: 2013-09-04 20:20+0100\n"
+"PO-Revision-Date: 2013-09-04 20:26+0200\n"
+"Last-Translator: Nicolas Gaulard-Querol <nicolas.gquerol@gmail.com>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: fortuner2.in:34
+#, sh-format
+msgid ""
+"Usage: ${progname} [option...] [-- fortuneoption...]\n"
+"\n"
+" -c COUNT, --count COUNT\n"
+"                how many fortunes to show\n"
+" -d SECONDS, --delay SECONDS\n"
+"                sleep SECONDS after sending each fortune\n"
+" -n COMMAND, --notifycmd COMMAND\n"
+"                send the notify to COMMAND\n"
+" -h, --help     show help message and exit\n"
+" -v, --version  print program name and version and exit\n"
+"\n"
+"Everything after -- is passed to fortune program.\n"
+"For options supported by fortune, see man 6 fortune."
+msgstr ""
+"Utilisation : ${progname} [argument...] [-- argument(s) pour fortune...]\n"
+"\n"
+" -c QUANTITÉ, --count QUANTITÉ\n"
+"                le nombre de citations à afficher\n"
+" -d SECONDES, --delay SECONDES\n"
+"                attendre SECONDES après chaque citation\n"
+" -n COMMANDE, --notifycmd COMMANDE\n"
+"                envoyer la notification à COMMANDE\n"
+" -h, --help     afficher et l'aide et quitter\n"
+" -v, --version  afficher des informations de version et quitter\n"
+"\n"
+"Tout argument après -- est passé au programme fortune.\n"
+"Pour afficher une liste des options supportées par fortune : man 6 fortune."
+
+#: fortuner2.in:49
+#, sh-format
+msgid "Today's Fortune"
+msgstr "La citation du jour"
+
+#: fortuner2.in:83
+msgid "Count must be a number!"
+msgstr "La quantité doit être un nombre !"
+
+#: fortuner2.in:91
+msgid "Delay must be a number!"
+msgstr "Le délai doit être un nombre !"
+
+#: fortuner2.in:114
+#, sh-format
+msgid "${progname}: Unknown argument: ${arg}"
+msgstr "${progname}: Argument inconnu: ${arg}"
+
+#: fortuner2.in:126
+#, sh-format
+msgid "${progname}: No fortune to show!"
+msgstr "${progname}: Aucune citation à afficher !"

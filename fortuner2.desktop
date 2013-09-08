@@ -1,12 +1,15 @@
 [Desktop Entry]
 Type=Application
+Version=1.0
 Name=Fortuner
 Comment=Shows a notification containing random adage
 Comment[de]=Zeigt eine Meldung mit einem zufälligen Sprichwort
 Comment[fi]=Näyttää satunnaisen mietelauseen sisältävän ilmoituksen
+Comment[fr]=Affiche une notification contenant une citation aléatoire
 Icon=fortuner2
 TryExec=fortuner2
 Exec=fortuner2
 Terminal=false
 Categories=Game;Amusement;
+Keywords=fortune;
 StartupNotify=false

@@ -16,7 +16,7 @@
 
 # Name and version
 PACKAGE = fortuner2
-VERSION = 0.5.0
+VERSION = 0.5.2
 
 # External programs.
 INSTALL = install -c
@@ -48,7 +48,43 @@ define \n
 
 endef
 
-.PHONY: clean
+HELPTEXT = Makefile usage\
+\nOptions (current value)\
+\nPlease set the ones you want to customize on every invocation of make.\
+\n\
+\n DESTDIR         ($(DESTDIR))\
+\n PREFIX          ($(PREFIX))\
+\n BINDIR          ($(BINDIR))\
+\n DATADIR         ($(DATADIR)\
+\n SYSCONFDIR      ($(SYSCONFDIR))\
+\n LOCALEDIR       ($(LOCALEDIR))\
+\n MANDIR          ($(MANDIR))\
+\n XDG_DESKTOP_DIR ($(XDG_DESKTOP_DIR))\
+\n ICONDIR         ($(ICONDIR))\
+\n\
+\n INSTALL         ($(INSTALL))\
+\n MANCOMPRESS     ($(MANCOMPRESS))\
+\n  UNIX manpage compression. Set to empty not to compress manpage.\
+\n\
+\n TRANSLATED      ($(TRANSLATED))\
+\n  Available translations. Set to empty to compile and install none.\
+\n ICONS           ($(ICONS))\
+\n  Available icon sizes. Set to empty to install none.\
+\n\
+\nTargets\
+\n\
+\n all\
+\n $(PACKAGE)\
+\n translations\
+\n\
+\n install\
+\n clean\
+\n\
+\n po/$(PACKAGE).pot\
+\n\
+\n help
+
+.PHONY: clean help
 
 all: $(PACKAGE) translations
 
@@ -106,3 +142,6 @@ endif
 
 clean:
 	rm -rf $(PACKAGE) locale
+
+help:
+	@echo "$(HELPTEXT)"

@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: fortuner2 0.5.0\n"
+"Project-Id-Version: fortuner2 0.5.2\n"
 "Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
-"POT-Creation-Date: 2013-01-19 14:46+0200\n"
+"POT-Creation-Date: 2013-09-08 08:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"

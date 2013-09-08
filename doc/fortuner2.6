@@ -13,7 +13,7 @@
 .\" You should have received a copy of the GNU General Public License
 .\" along with this program.  If not, see <http://www.gnu.org/licenses/>.
 .\"
-.TH FORTUNER2 6 2013-01-18
+.TH FORTUNER2 6 2013-09-07
 .SH NAME
 fortuner2 \- show a fortune as a notification
 .SH SYNOPSIS
@@ -39,8 +39,10 @@ recognizes the following command line options:
 .TP
 .BR "\-c \fICOUNT" ", " "\-\-count " \fICOUNT
 how many fortunes to show
-.BR "\-d \fICOUNT" ", " "\-\-delay " \fSECONDS
+.TP
+.BR "\-d \fICOUNT" ", " "\-\-delay " \fISECONDS
 sleep SECONDS after sending each fortune
+.TP
 .BR "\-n \fICOMMAND" ", " "\-\-notifycmd " \fICOMMAND
 send the notify to COMMAND
 .TP
@@ -56,7 +58,9 @@ program
 .SH EXAMPLES
 .TP
 .B fortuner2 \-\- \-a
-Pass an argument to fortune that tells to include also offensive fortunes when
+Pass an
+.B -a
+argument to fortune that tells to include also offensive fortunes when
 looking for them. For more information on offensive fortunes, please see the
 .BR fortune (6)
 manual page.

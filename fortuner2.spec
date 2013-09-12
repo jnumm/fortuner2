@@ -6,7 +6,7 @@
 %global directories PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
 
 Name:           fortuner2
-Version:        0.5.1
+Version:        0.5.2
 Release:        1
 Summary:        Shows fortunes as notifications
 # Red Hat group
@@ -69,6 +69,10 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %changelog
+* Thu Sep 12 2013 Juhani Numminen <juhaninumminen0@gmail.com> - 0.5.2-1
+- Update to 0.5.2
+  + French translation
+
 * Sun Jan 20 2013 Juhani Numminen <juhaninumminen0@gmail.com> - 0.5.1-1
 - Update to 0.5.1
   + Support for showing several fortunes

@@ -115,7 +115,7 @@ install: $(PACKAGE) translations
 	$(INSTALL) "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
 
 	desktop-file-install --dir="$(abspath $(DESTDIR)$(XDG_DESKTOP_DIR))" \
-	"fortuner2.desktop"
+	"com.github.jnumm.fortuner2.desktop"
 
 ifneq ($(strip $(TRANSLATED)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\

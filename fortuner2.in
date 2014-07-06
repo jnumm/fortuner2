@@ -76,45 +76,45 @@ fi
 
 while [ -n "$1" ]; do
     case "$1" in
-        -c | --count)
-            shift
-            count="$1"
-            if [ -z "${count##*[!0-9]*}" ]; then
-			    gettext "Count must be a number!"; echo
-			    exit 1
-            fi
-            ;;
-        -d | --delay)
-            shift
-            delay="$1"
-            if [ -z "${delay##*[!0-9]*}" ]; then
-			    gettext "Delay must be a number!"; echo
-                exit 1
-            fi
-            ;;
-        -n | --notifycmd)
-            shift
-            notifycmd="$1"
-            ;;
-        -h | --help)
-            echo "$usagetext"
-            exit 0
-            ;;
-        -v | --version)
-            echo "$progname $version"
-            exit 0
-            ;;
-        --)
-            shift
-            fortunecmd="$fortunecmd $@"
-            break
-            ;;
-        *)
-            arg="$1"
-            eval_gettext "\${progname}: Unknown argument: \${arg}"; echo
-            echo "$usagetext" >&2
+    -c | --count)
+        shift
+        count="$1"
+        if [ -z "${count##*[!0-9]*}" ]; then
+            gettext "Count must be a number!"; echo
             exit 1
-            ;;
+        fi
+        ;;
+    -d | --delay)
+        shift
+        delay="$1"
+        if [ -z "${delay##*[!0-9]*}" ]; then
+            gettext "Delay must be a number!"; echo
+            exit 1
+        fi
+        ;;
+    -n | --notifycmd)
+        shift
+        notifycmd="$1"
+        ;;
+    -h | --help)
+        echo "$usagetext"
+        exit 0
+        ;;
+    -v | --version)
+        echo "$progname $version"
+        exit 0
+        ;;
+    --)
+        shift
+        fortunecmd="$fortunecmd $@"
+        break
+        ;;
+    *)
+        arg="$1"
+        eval_gettext "\${progname}: Unknown argument: \${arg}"; echo
+        echo "$usagetext" >&2
+        exit 1
+        ;;
     esac
     shift
 done

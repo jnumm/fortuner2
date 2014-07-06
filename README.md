@@ -11,8 +11,6 @@ It has about the same functionality as `fortuner`, but the implementation
 is lighter. `fortuner` is a C++ application and `fortuner2` is a shell
 script.
 
-The script runs at least in `bash`, `dash`, `mksh` and `zsh` shells.
-
 Installation
 ------------
 
@@ -44,7 +42,7 @@ If you're looking for installable packages, there are packages for
 Ubuntu/Debian in
 [Juhani Numminen's Launchpad PPA](https://launchpad.net/~jsonic/+archive/ppa/)
 (the packages will be published for the development version of Ubuntu,
-currently "saucy") and Arch Linux in the
+currently “utopic”) and Arch Linux in the
 [AUR](https://aur.archlinux.org/packages/fortuner2/).
 
 If you would like to package fortuner for your distribution, please have
@@ -72,5 +70,7 @@ directly to the author [Juhani Numminen](mailto:juhaninumminen0@gmail.com).
 
 License
 -------
+© 2012–2014 Juhani Numminen.
+
 fortuner2 is licensed under GNU GPL v3
 (see [COPYING](https://github.com/jnumm/fortuner2/blob/master/COPYING)).

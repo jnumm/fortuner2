@@ -1,30 +1,23 @@
 # RPM spec file for fortuner2.
-# It's written by upstream and aims to be distro-neutral.
+# It's written by upstream and tries to be Fedora compatible.
 # It should be updated at every release.
 
 # Installation directories for the Makefile of the package.
 %global directories PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
 
-Name:           fortuner2
-Version:        0.5.2
-Release:        1
-Summary:        Shows fortunes as notifications
-# Red Hat group
-Group:          Amusements/Games
-# OpenSUSE group
-#Group:          Amusements/Toys/Other
-# Mandriva group
-#Group:          Toys
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-License:        GPLv3+
-URL:            https://github.com/jnumm/fortuner2
-Source0:        https://github.com/jnumm/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
-BuildArch:      noarch
-BuildRequires:  desktop-file-utils
-BuildRequires:  gettext
-Requires:       /usr/bin/fortune
-Requires:       /usr/bin/gettext.sh
-Requires:       /usr/bin/notify-send
+Name:      fortuner2
+Version:   0.5.2
+Release:   2
+Summary:   Shows fortunes as notifications
+License:   GPLv3+
+URL:       https://github.com/jnumm/fortuner2
+Source:    https://github.com/jnumm/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+BuildArch: noarch
+BuildRequires: desktop-file-utils
+BuildRequires: gettext
+Requires: fortune-mod
+Requires: gettext
+Requires: libnotify
 
 %description
 fortuner2 displays a notification containing a random adage. The adages
@@ -44,8 +37,7 @@ script.
 make %{?_smp_mflags} %{directories}
 
 %install
-rm -rf %{buildroot}
-make %{directories} DESTDIR=%{buildroot} install
+%make_install %{directories}
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %find_lang %{name}
 
@@ -69,6 +61,9 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %changelog
+* Mon Jul 07 2014 Juhani Numminen <juhaninumminen0@gmail.com> - 0.5.2-2
+- Remove some things deprecated in Fedora
+
 * Thu Sep 12 2013 Juhani Numminen <juhaninumminen0@gmail.com> - 0.5.2-1
 - Update to 0.5.2
   + French translation

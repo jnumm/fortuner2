@@ -4,8 +4,10 @@ fortuner2
 `fortuner2` shows a fortune as a notification. Requires the `fortune`
 program (usually in package `fortune-mod`), `notify-send` from
 `libnotify` or `libnotify-bin` and `gettext.sh` & `gettext` commands
-from GNU `gettext`. Also for installation you will need
-`desktop-file-install`.
+from GNU `gettext`.
+
+`desktop-file-install` will be used during the installation if it’s
+detected but is not required.
 
 It has about the same functionality as `fortuner`, but the implementation
 is lighter. `fortuner` is a C++ application and `fortuner2` is a shell

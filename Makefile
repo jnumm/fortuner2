@@ -116,11 +116,10 @@ install: $(PACKAGE) translations
 
 ifneq ($(strip $(shell which desktop-file-install 2>/dev/null)),)
 	desktop-file-install --dir="$(abspath $(DESTDIR)$(XDG_DESKTOP_DIR))" \
-	"com.github.jnumm.fortuner2.desktop"
+	"fortuner2.desktop"
 else
 	$(INSTALL) -d "$(DESTDIR)$(XDG_DESKTOP_DIR)"
-	$(INSTALL) -m 644 "com.github.jnumm.fortuner2.desktop" \
-	"$(DESTDIR)$(XDG_DESKTOP_DIR)"
+	$(INSTALL) -m 644 "fortuner2.desktop" "$(DESTDIR)$(XDG_DESKTOP_DIR)"
 endif
 
 ifneq ($(strip $(TRANSLATED)),)

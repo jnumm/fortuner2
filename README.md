@@ -61,8 +61,7 @@ this, append `TRANSLATED=` to `make` and `make install`.
 
 If you would like to translate fortuner2 to your language you'll have to
 provide a .po file. Please also provide translation for Name and Comment
-strings in com.github.jnumm.fortuner2.desktop. You can also provide man
-page translations.
+strings in fortuner2.desktop. You can also provide man page translations.
 
 Bugs
 ----

@@ -47,12 +47,11 @@ Ubuntu/Debian in
 currently “utopic”) and Arch Linux in the
 [AUR](https://aur.archlinux.org/packages/fortuner2/).
 
-If you would like to package fortuner for your distribution, please have
-a look on
-[DEB](http://bazaar.launchpad.net/~jsonic/+junk/fortuner2-ppa/files),
-[RPM](https://github.com/jnumm/fortuner2/blob/rpm/fortuner2.spec) and
-[Arch Linux](https://github.com/jnumm/fortuner2/tree/arch-pkg)
-packaging files that are maintained by upstream.
+If you would like to package fortuner for your distribution, please go ahead!
+You may find the packaging files created by upstream useful:
+* [deb](http://bazaar.launchpad.net/~jsonic/+junk/fortuner2-ppa/files)
+* [rpm](https://github.com/jnumm/fortuner2/blob/rpm/fortuner2.spec)
+* [Arch](https://github.com/jnumm/fortuner2/tree/arch-pkg)
 
 I18n
 ----

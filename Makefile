@@ -20,7 +20,7 @@ VERSION = 0.5.2
 
 # External programs.
 INSTALL = install -c
-MANCOMPRESS = gzip -9
+MANCOMPRESS = gzip -f -9
 
 # Directories.
 DESTDIR =

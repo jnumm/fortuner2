@@ -1,23 +1,35 @@
 # RPM spec file for fortuner2.
-# It's written by upstream and tries to be Fedora compatible.
+# It's written by upstream and tries to be usable for many distros.
+
 # It should be updated at every release.
 
 # Installation directories for the Makefile of the package.
 %global directories PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
 
-Name:      fortuner2
-Version:   0.5.2
-Release:   2
-Summary:   Shows fortunes as notifications
-License:   GPLv3+
+Name:          fortuner2
+Version:       0.5.2
+
+%if 0%{?mgaversion}
+Release:       %mkrel 0
+%else
+Release:       0%{?dist}
+%endif
+
+Summary:       Shows fortunes as notifications
+License:       GPLv3+
+
+%if 0%{?mgaversion}
+Group:         Toys
+%endif
+
 URL:       https://github.com/jnumm/fortuner2
 Source:    https://github.com/jnumm/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
-BuildArch: noarch
+BuildArch:     noarch
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
-Requires: fortune-mod
-Requires: gettext
-Requires: libnotify
+Requires:      fortune-mod
+Requires:      gettext
+Requires:      libnotify
 
 %description
 fortuner2 displays a notification containing a random adage. The adages
@@ -34,20 +46,21 @@ script.
 %setup -q
 
 %build
-make %{?_smp_mflags} %{directories}
+make %{directories}
 
 %install
 %make_install %{directories}
-desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %find_lang %{name}
 
 %files -f %{name}.lang
 %doc README.md COPYING doc/fortuner2.conf.ex
-%{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
+%{_bindir}/*
+%{_datadir}/applications/*
 %{_datadir}/icons/hicolor/*
-%{_mandir}/man6/%{name}.6.gz
+%{_mandir}/man6/*
 
+%if 0%{?fedora}
 %post
 /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
@@ -59,38 +72,4 @@ fi
 
 %posttrans
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-
-%changelog
-* Mon Jul 07 2014 Juhani Numminen <juhaninumminen0@gmail.com> - 0.5.2-2
-- Remove some things deprecated in Fedora
-
-* Thu Sep 12 2013 Juhani Numminen <juhaninumminen0@gmail.com> - 0.5.2-1
-- Update to 0.5.2
-  + French translation
-
-* Sun Jan 20 2013 Juhani Numminen <juhaninumminen0@gmail.com> - 0.5.1-1
-- Update to 0.5.1
-  + Support for showing several fortunes
-  + More useful example configuration file
-
-* Sat Jan 05 2013 Juhani Numminen <juhaninumminen0@gmail.com> - 0.4.0-1
-- Update to 0.4.0
-  + Configuration file support
-- Define SYSCONFDIR in make commands
-- Move installation directories into a variable
-- Install the example config file as documentation
-
-* Tue Dec 25 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.3.0-1
-- Update to 0.3.0
-  + Use --app-name only if notify-send is new enough
-  + Icons
-- Add icon cache scriptlets
-- Add spacing to the changelog to improve readability
-
-* Mon Dec 24 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-2
-- Use _prefix macro instead of /usr and _mandir instead of _datadir/man
-- Give install after variable overrides in install step
-- Add OpenSUSE Group tag alternative
-
-* Sat Dec 22 2012 Juhani Numminen <juhaninumminen0@gmail.com> - 0.2.2-1
-- Initial RPM release
+%endif

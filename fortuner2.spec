@@ -8,13 +8,7 @@
 
 Name:          fortuner2
 Version:       0.5.2
-
-%if 0%{?mgaversion}
-Release:       %mkrel 0
-%else
-Release:       0%{?dist}
-%endif
-
+Release:       0.1%{?dist}
 Summary:       Shows fortunes as notifications
 License:       GPLv3+
 
@@ -22,8 +16,8 @@ License:       GPLv3+
 Group:         Toys
 %endif
 
-URL:       https://github.com/jnumm/fortuner2
-Source:    https://github.com/jnumm/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+URL:           https://github.com/jnumm/fortuner2
+Source:        https://github.com/jnumm/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildArch:     noarch
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
@@ -49,8 +43,7 @@ script.
 make %{directories}
 
 %install
-%make_install %{directories}
-desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
+make install DESTDIR=%{buildroot} %{directories}
 %find_lang %{name}
 
 %files -f %{name}.lang

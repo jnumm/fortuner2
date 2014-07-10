@@ -12,8 +12,14 @@ Release:       0.1%{?dist}
 Summary:       Shows fortunes as notifications
 License:       GPLv3+
 
-%if 0%{?mgaversion}
+%if 0%{?mdkversion}
 Group:         Toys
+%else
+%if 0%{?suse_version}
+Group:         Amusements/Toys/Other
+%else
+Group:         Amusements/Games
+%endif
 %endif
 
 URL:           https://github.com/jnumm/fortuner2

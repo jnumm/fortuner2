@@ -43,6 +43,13 @@ title="$(eval_gettext "Today's Fortune")"
 fortunecmd="fortune"
 notifycmd="notify-send --icon=fortuner2 --urgency=low"
 
+notifyversion="$(notify-send --version | awk '{ print $2 }')"
+
+if [ "$(echo "${notifyversion}\n0.7.5" | sort -t '.' -g | tail -n 1)" \
+= "${notifyversion}" ]; then
+    notifycmd="${notifycmd} --app-name=${appname}"
+fi
+
 if [ -f "@SYSCONFDIR@/${progname}.conf" ]; then
     . "@SYSCONFDIR@/${progname}.conf"
 fi
@@ -54,13 +61,6 @@ fi
 if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf" ]
 then
     . "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf"
-fi
-
-notifyversion="$(notify-send --version | awk '{ print $2 }')"
-
-if [ "$(echo "${notifyversion}\n0.7.5" | sort -t '.' -g | tail -n 1)" \
-= "${notifyversion}" ]; then
-    notifycmd="${notifycmd} --app-name=${appname}"
 fi
 
 while [ -n "$1" ]; do

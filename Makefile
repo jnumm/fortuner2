@@ -112,7 +112,7 @@ po/$(PACKAGE).pot: fortuner2.in
 
 install: $(PACKAGE) translations
 	$(INSTALL) -d "$(DESTDIR)$(BINDIR)"
-	$(INSTALL) "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
+	$(INSTALL) -m 755 "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
 
 ifneq ($(strip $(shell which desktop-file-install 2>/dev/null)),)
 	desktop-file-install --dir="$(abspath $(DESTDIR)$(XDG_DESKTOP_DIR))" \
@@ -125,6 +125,7 @@ endif
 ifneq ($(strip $(TRANSLATED)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
 	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
+
 	$(foreach lang,$(TRANSLATED),\
 	$(INSTALL) -m 644 "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
 	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
@@ -140,6 +141,7 @@ endif
 ifneq ($(strip $(ICONS)),)
 	$(INSTALL) -d $(addprefix "$(DESTDIR)$(ICONDIR)/hicolor/,\
 	$(addsuffix /apps",$(ICONS)))
+
 	$(foreach size,$(ICONS),\
 	$(INSTALL) -m 644 $(wildcard icons/$(size)/apps/*) \
 	"$(DESTDIR)$(ICONDIR)/hicolor/$(size)/apps"$(\n))

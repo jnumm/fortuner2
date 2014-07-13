@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fortuner2 0.5.2\n"
 "Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
-"POT-Creation-Date: 2013-09-08 08:17+0300\n"
+"POT-Creation-Date: 2014-07-13 18:58+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: fortuner2.in:34
+#: fortuner2.in:30
 #, sh-format
 msgid ""
 "Usage: ${progname} [option...] [-- fortuneoption...]\n"
 "\n"
-" -c COUNT, --count COUNT\n"
-"                how many fortunes to show\n"
-" -d SECONDS, --delay SECONDS\n"
-"                sleep SECONDS after sending each fortune\n"
 " -n COMMAND, --notifycmd COMMAND\n"
 "                send the notify to COMMAND\n"
 " -h, --help     show help message and exit\n"
@@ -35,25 +31,17 @@ msgid ""
 "For options supported by fortune, see man 6 fortune."
 msgstr ""
 
-#: fortuner2.in:49
+#: fortuner2.in:41
 #, sh-format
 msgid "Today's Fortune"
 msgstr ""
 
-#: fortuner2.in:83
-msgid "Count must be a number!"
-msgstr ""
-
-#: fortuner2.in:91
-msgid "Delay must be a number!"
-msgstr ""
-
-#: fortuner2.in:114
+#: fortuner2.in:87
 #, sh-format
 msgid "${progname}: Unknown argument: ${arg}"
 msgstr ""
 
-#: fortuner2.in:126
+#: fortuner2.in:98
 #, sh-format
 msgid "${progname}: No fortune to show!"
 msgstr ""

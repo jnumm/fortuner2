@@ -13,7 +13,7 @@
 .\" You should have received a copy of the GNU General Public License
 .\" along with this program.  If not, see <http://www.gnu.org/licenses/>.
 .\"
-.TH FORTUNER2 6 2014-07-06
+.TH FORTUNER2 6 2014-07-13
 .SH NAME
 fortuner2 \- show a fortune as a notification
 .SH SYNOPSIS
@@ -26,20 +26,14 @@ program.
 
 It uses
 .BR notify-send (1)
-to deliver the adages to the notification daemon which in turn shows them to the
-user.
+to deliver the adages to the notification daemon which in turn shows
+them to the user.
 
 .B fortuner2
 is a Bourne shell script.
 .SH OPTIONS
 .B fortuner2
 recognizes the following command line options:
-.TP
-.BR "\-c \fICOUNT" ", " "\-\-count " \fICOUNT
-how many fortunes to show
-.TP
-.BR "\-d \fICOUNT" ", " "\-\-delay " \fISECONDS
-sleep SECONDS after sending each fortune
 .TP
 .BR "\-n \fICOMMAND" ", " "\-\-notifycmd " \fICOMMAND
 send the notify to COMMAND

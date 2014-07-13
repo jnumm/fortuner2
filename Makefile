@@ -104,9 +104,8 @@ locale/%/LC_MESSAGES/$(PACKAGE).mo: po/%.po
 	msgfmt --output-file="$@" --check --verbose --statistics "$<"
 
 po/$(PACKAGE).pot: fortuner2.in
-	xgettext --output="$@" --language="Shell" \
+	xgettext --output="$@" --language="Shell" --package-name="$(PACKAGE)" \
 	--copyright-holder="Juhani Numminen <juhaninumminen0@gmail.com>" \
-	--package-name="$(PACKAGE)" --package-version="$(VERSION)" \
 	--msgid-bugs-address="https://github.com/jnumm/fortuner2/issues" \
 	"$<"
 

@@ -5,21 +5,18 @@
 
 # The title of the notification. For custom values, $(eval_gettext ... )
 # is not needed.
-# Default value:
 #title="$(eval_gettext "Today's Fortune")"
-# Example custom value:
 #title="Today's Fortune for $USER"
 
 # Fortune command.
-# Default value:
 #fortunecmd="fortune"
-# Example custom value:
 #fortunecmd="fortune -s -o"
 
 # Notify command. Here you can specify parameters for the notify sending
 # program.
-# Default value (if notify-send >= 0.7.5 is detected, the string
-# "--app-name=Fortuner" is appended to this):
+# With notify-send < 0.7.5
 #notifycmd="notify-send --icon=fortuner2 --urgency=low"
-# Example custom value:
+# With notify-send >= 0.7.5
+#notifycmd="notify-send --icon=fortuner2 --urgency=low --app-name=Fortuner2"
+
 #notifycmd="$notifycmd --expire-time=10000"

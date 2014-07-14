@@ -7,7 +7,7 @@
 %global directories PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
 
 Name:          fortuner2
-Version:       0.5.2
+Version:       2014.07.1
 Release:       0.1%{?dist}
 Summary:       Shows fortunes as notifications
 License:       GPLv3+

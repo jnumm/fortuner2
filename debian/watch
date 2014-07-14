@@ -1,0 +1,2 @@
+version=3
+https://github.com/jnumm/fortuner2/tags .*/(\d[\d\.]+)\.tar\.gz

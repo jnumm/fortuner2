@@ -1,0 +1,7 @@
+?package(fortuner2):\
+  title="Fortuner2"\
+  needs="X11"\
+  section="Games/Toys"\
+  longtitle="Display random adages"\
+  command="fortuner2"\
+  icon="/usr/share/pixmaps/fortuner2.xpm"

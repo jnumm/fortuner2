@@ -1,8 +1,8 @@
 # Maintainer: Juhani Numminen <juhaninumminen0@gmail.com>
 
 pkgname=fortuner2
-pkgver=0.5.2
-pkgrel=2
+pkgver=2014.07.1
+pkgrel=1
 pkgdesc='Shows a fortune as a notification'
 arch=('any')
 url='https://github.com/jnumm/fortuner2'
@@ -11,7 +11,7 @@ depends=('fortune-mod' 'libnotify' 'gettext' 'gtk-update-icon-cache')
 makedepends=('desktop-file-utils')
 install="${pkgname}.install"
 source=("https://github.com/jnumm/${pkgname}/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz")
-md5sums=('ddf4017f6b1eaa61d402e5515c1901ac')
+md5sums=('5100c9fccbbc514d50e6c6ca681205c8')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"

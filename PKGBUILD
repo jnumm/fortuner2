@@ -21,4 +21,7 @@ build() {
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   make DESTDIR="${pkgdir}" PREFIX=/usr SYSCONFDIR=/etc install
+
+  install -Dm644 README.md doc/fortuner2.conf.ex \
+      "${pkgdir}/usr/share/doc/${pkgname}/"
 }

@@ -11,7 +11,7 @@ depends=('fortune-mod' 'libnotify' 'gettext' 'gtk-update-icon-cache')
 makedepends=('desktop-file-utils')
 install="${pkgname}.install"
 source=("https://github.com/jnumm/${pkgname}/archive/${pkgver}/${pkgname}-${pkgver}.tar.gz")
-md5sums=('5100c9fccbbc514d50e6c6ca681205c8')
+sha256sums=('9c07e83d1341476f4f2d3edec5152801579566ec599b1a8d9101c6191f3e208b')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"

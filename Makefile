@@ -19,7 +19,7 @@ PACKAGE = fortuner2
 VERSION = 2014.07.1
 
 # External programs.
-INSTALL = install -c
+INSTALL = install
 MANCOMPRESS = gzip -f -9
 
 # Directories.

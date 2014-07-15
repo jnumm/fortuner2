@@ -39,9 +39,6 @@ TRANSLATED = $(notdir $(basename $(wildcard po/*.po)))
 MOFILES = $(addprefix locale/,\
 $(addsuffix /LC_MESSAGES/$(PACKAGE).mo,$(TRANSLATED)))
 
-# List of icon sizes.
-ICONS = $(subst icons/,,$(wildcard icons/*))
-
 # Newline character.
 define \n
 
@@ -68,8 +65,6 @@ HELPTEXT = Makefile usage\
 \n\
 \n TRANSLATED      ($(TRANSLATED))\
 \n  Available translations. Set to empty to compile and install none.\
-\n ICONS           ($(ICONS))\
-\n  Available icon sizes. Set to empty to install none.\
 \n\
 \nTargets\
 \n\
@@ -111,40 +106,28 @@ po/$(PACKAGE).pot: fortuner2.in
 
 install: $(PACKAGE) translations
 	$(INSTALL) -d "$(DESTDIR)$(BINDIR)"
-	$(INSTALL) -m 755 "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
+	$(INSTALL) -m755 "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
 
 ifneq ($(strip $(shell which desktop-file-install 2>/dev/null)),)
 	desktop-file-install --dir="$(abspath $(DESTDIR)$(XDG_DESKTOP_DIR))" \
 	"fortuner2.desktop"
 else
 	$(INSTALL) -d "$(DESTDIR)$(XDG_DESKTOP_DIR)"
-	$(INSTALL) -m 644 "fortuner2.desktop" "$(DESTDIR)$(XDG_DESKTOP_DIR)"
+	$(INSTALL) -m644 "fortuner2.desktop" "$(DESTDIR)$(XDG_DESKTOP_DIR)"
 endif
 
-ifneq ($(strip $(TRANSLATED)),)
-	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
-	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
-
-	$(foreach lang,$(TRANSLATED),\
-	$(INSTALL) -m 644 "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
-	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
-endif
+	$(INSTALL) -d "$(DESTDIR)$(LOCALEDIR)"
+	cp -R locale/* "$(DESTDIR)$(LOCALEDIR)"
 
 	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
-	$(INSTALL) -m 644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
+	$(INSTALL) -m644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
 
 ifneq ($(strip $(MANCOMPRESS)),)
 	$(MANCOMPRESS) "$(DESTDIR)$(MANDIR)/man6/fortuner2.6"
 endif
 
-ifneq ($(strip $(ICONS)),)
-	$(INSTALL) -d $(addprefix "$(DESTDIR)$(ICONDIR)/hicolor/,\
-	$(addsuffix /apps",$(ICONS)))
-
-	$(foreach size,$(ICONS),\
-	$(INSTALL) -m 644 $(wildcard icons/$(size)/apps/*) \
-	"$(DESTDIR)$(ICONDIR)/hicolor/$(size)/apps"$(\n))
-endif
+	$(INSTALL) -d "$(DESTDIR)$(ICONDIR)/hicolor"
+	cp -R icons/* "$(DESTDIR)$(ICONDIR)/hicolor"
 
 clean:
 	rm -rf $(PACKAGE) locale

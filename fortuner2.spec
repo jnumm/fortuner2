@@ -8,11 +8,11 @@
 
 Name:          fortuner2
 Version:       2014.07.1
-Release:       0.1%{?dist}
+Release:       0.2%{?dist}
 Summary:       Shows fortunes as notifications
 License:       GPLv3+
 
-%if 0%{?mdkversion}
+%if 0%{?mdkver}
 Group:         Toys
 %else
 %if 0%{?suse_version}

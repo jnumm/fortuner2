@@ -88,8 +88,8 @@ all: $(PACKAGE) translations
 $(PACKAGE): fortuner2.in
 	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
 	-e "s/@VERSION@/$(VERSION)/" \
-	-e "s/@SYSCONFDIR@/$(subst /,\/,$(DESTDIR)$(SYSCONFDIR))/" \
-	-e "s/@LOCALEDIR@/$(subst /,\/,$(DESTDIR)$(LOCALEDIR))/" \
+	-e "s/@SYSCONFDIR@/$(subst /,\/,$(SYSCONFDIR))/" \
+	-e "s/@LOCALEDIR@/$(subst /,\/,$(LOCALEDIR))/" \
 	"$<" >"$(PACKAGE)"
 
 	chmod +x "$(PACKAGE)"

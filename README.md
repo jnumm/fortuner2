@@ -74,3 +74,5 @@ License
 
 fortuner2 is licensed under GNU GPL v3
 (see [COPYING](https://github.com/jnumm/fortuner2/blob/master/COPYING)).
+
+The file fortuner2.appdata.xml is dedicated to public domain with CC0-1.0.

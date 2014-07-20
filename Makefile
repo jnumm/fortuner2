@@ -31,6 +31,7 @@ SYSCONFDIR = $(PREFIX)/etc
 LOCALEDIR = $(DATADIR)/locale
 MANDIR = $(DATADIR)/man
 XDG_DESKTOP_DIR = $(DATADIR)/applications
+APPDATA_DIR = $(DATADIR)/appdata
 ICONDIR = $(DATADIR)/icons
 
 # List of country codes which have a translation.
@@ -57,6 +58,7 @@ HELPTEXT = Makefile usage\
 \n LOCALEDIR       ($(LOCALEDIR))\
 \n MANDIR          ($(MANDIR))\
 \n XDG_DESKTOP_DIR ($(XDG_DESKTOP_DIR))\
+\n APPDATA_DIR     ($(APPDATA_DIR))\
 \n ICONDIR         ($(ICONDIR))\
 \n\
 \n INSTALL         ($(INSTALL))\
@@ -115,6 +117,9 @@ else
 	$(INSTALL) -d "$(DESTDIR)$(XDG_DESKTOP_DIR)"
 	$(INSTALL) -m644 "fortuner2.desktop" "$(DESTDIR)$(XDG_DESKTOP_DIR)"
 endif
+
+	$(INSTALL) -d "$(DESTDIR)$(APPDATA_DIR)"
+	$(INSTALL) -m644 "fortuner2.appdata.xml" "$(DESTDIR)$(APPDATA_DIR)"
 
 	$(INSTALL) -d "$(DESTDIR)$(LOCALEDIR)"
 	cp -R locale/* "$(DESTDIR)$(LOCALEDIR)"

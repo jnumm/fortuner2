@@ -16,7 +16,7 @@
 
 # Name and version
 PACKAGE = fortuner2
-VERSION = 2014.07.1
+VERSION = 2014.07.2
 
 # External programs.
 INSTALL = install

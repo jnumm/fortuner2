@@ -16,10 +16,10 @@
 
 # Name and version
 PACKAGE = fortuner2
-VERSION = 2014.07.1
+VERSION = 2014.07.2
 
 # External programs.
-INSTALL = install -c
+INSTALL = install
 MANCOMPRESS = gzip -f -9
 
 # Directories.
@@ -31,6 +31,7 @@ SYSCONFDIR = $(PREFIX)/etc
 LOCALEDIR = $(DATADIR)/locale
 MANDIR = $(DATADIR)/man
 XDG_DESKTOP_DIR = $(DATADIR)/applications
+APPDATA_DIR = $(DATADIR)/appdata
 ICONDIR = $(DATADIR)/icons
 
 # List of country codes which have a translation.
@@ -38,9 +39,6 @@ TRANSLATED = $(notdir $(basename $(wildcard po/*.po)))
 # List mo files to create.
 MOFILES = $(addprefix locale/,\
 $(addsuffix /LC_MESSAGES/$(PACKAGE).mo,$(TRANSLATED)))
-
-# List of icon sizes.
-ICONS = $(subst icons/,,$(wildcard icons/*))
 
 # Newline character.
 define \n
@@ -60,6 +58,7 @@ HELPTEXT = Makefile usage\
 \n LOCALEDIR       ($(LOCALEDIR))\
 \n MANDIR          ($(MANDIR))\
 \n XDG_DESKTOP_DIR ($(XDG_DESKTOP_DIR))\
+\n APPDATA_DIR     ($(APPDATA_DIR))\
 \n ICONDIR         ($(ICONDIR))\
 \n\
 \n INSTALL         ($(INSTALL))\
@@ -68,8 +67,6 @@ HELPTEXT = Makefile usage\
 \n\
 \n TRANSLATED      ($(TRANSLATED))\
 \n  Available translations. Set to empty to compile and install none.\
-\n ICONS           ($(ICONS))\
-\n  Available icon sizes. Set to empty to install none.\
 \n\
 \nTargets\
 \n\
@@ -91,8 +88,8 @@ all: $(PACKAGE) translations
 $(PACKAGE): fortuner2.in
 	sed -e "s/@PACKAGE@/$(PACKAGE)/" \
 	-e "s/@VERSION@/$(VERSION)/" \
-	-e "s/@SYSCONFDIR@/$(subst /,\/,$(DESTDIR)$(SYSCONFDIR))/" \
-	-e "s/@LOCALEDIR@/$(subst /,\/,$(DESTDIR)$(LOCALEDIR))/" \
+	-e "s/@SYSCONFDIR@/$(subst /,\/,$(SYSCONFDIR))/" \
+	-e "s/@LOCALEDIR@/$(subst /,\/,$(LOCALEDIR))/" \
 	"$<" >"$(PACKAGE)"
 
 	chmod +x "$(PACKAGE)"
@@ -111,40 +108,31 @@ po/$(PACKAGE).pot: fortuner2.in
 
 install: $(PACKAGE) translations
 	$(INSTALL) -d "$(DESTDIR)$(BINDIR)"
-	$(INSTALL) -m 755 "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
+	$(INSTALL) -m755 "$(PACKAGE)" "$(DESTDIR)$(BINDIR)"
 
 ifneq ($(strip $(shell which desktop-file-install 2>/dev/null)),)
 	desktop-file-install --dir="$(abspath $(DESTDIR)$(XDG_DESKTOP_DIR))" \
 	"fortuner2.desktop"
 else
 	$(INSTALL) -d "$(DESTDIR)$(XDG_DESKTOP_DIR)"
-	$(INSTALL) -m 644 "fortuner2.desktop" "$(DESTDIR)$(XDG_DESKTOP_DIR)"
+	$(INSTALL) -m644 "fortuner2.desktop" "$(DESTDIR)$(XDG_DESKTOP_DIR)"
 endif
 
-ifneq ($(strip $(TRANSLATED)),)
-	$(INSTALL) -d $(addprefix "$(DESTDIR)$(LOCALEDIR)/,\
-	$(addsuffix /LC_MESSAGES",$(TRANSLATED)))
+	$(INSTALL) -d "$(DESTDIR)$(APPDATA_DIR)"
+	$(INSTALL) -m644 "fortuner2.appdata.xml" "$(DESTDIR)$(APPDATA_DIR)"
 
-	$(foreach lang,$(TRANSLATED),\
-	$(INSTALL) -m 644 "locale/$(lang)/LC_MESSAGES/$(PACKAGE).mo" \
-	"$(DESTDIR)$(LOCALEDIR)/$(lang)/LC_MESSAGES"$(\n))
-endif
+	$(INSTALL) -d "$(DESTDIR)$(LOCALEDIR)"
+	cp -R locale/* "$(DESTDIR)$(LOCALEDIR)"
 
 	$(INSTALL) -d "$(DESTDIR)$(MANDIR)/man6"
-	$(INSTALL) -m 644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
+	$(INSTALL) -m644 "doc/fortuner2.6" "$(DESTDIR)$(MANDIR)/man6"
 
 ifneq ($(strip $(MANCOMPRESS)),)
 	$(MANCOMPRESS) "$(DESTDIR)$(MANDIR)/man6/fortuner2.6"
 endif
 
-ifneq ($(strip $(ICONS)),)
-	$(INSTALL) -d $(addprefix "$(DESTDIR)$(ICONDIR)/hicolor/,\
-	$(addsuffix /apps",$(ICONS)))
-
-	$(foreach size,$(ICONS),\
-	$(INSTALL) -m 644 $(wildcard icons/$(size)/apps/*) \
-	"$(DESTDIR)$(ICONDIR)/hicolor/$(size)/apps"$(\n))
-endif
+	$(INSTALL) -d "$(DESTDIR)$(ICONDIR)/hicolor"
+	cp -R icons/* "$(DESTDIR)$(ICONDIR)/hicolor"
 
 clean:
 	rm -rf $(PACKAGE) locale

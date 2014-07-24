@@ -9,8 +9,5 @@ directories = PREFIX=/usr BINDIR=/usr/games SYSCONFDIR=/etc
 override_dh_auto_build:
 	dh_auto_build -- $(directories)
 
-	convert -resize 32x32 -background none \
-	icons/48x48/apps/fortuner2.png debian/fortuner2.xpm
-
 override_dh_auto_install:
 	dh_auto_install -- $(directories)

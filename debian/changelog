@@ -1,3 +1,15 @@
+fortuner2 (2014.07.2-0~ppa1) utopic; urgency=medium
+
+  * New upstream release
+  * debian/copyright: Add fortuner2.appdata.xml, CC0-1.0
+  * debian/control: Remove Build-Depends on imagemagick as the xpm icon is
+    installed by upstream Makefile
+  * debian/rules: Don’t generate the xpm icon
+  * debian/menu: Use the upstream location of the xpm icon
+  * Removed debian/clean, debian/install
+
+ -- Juhani Numminen <juhaninumminen0@gmail.com>  Thu, 24 Jul 2014 11:30:00 +0300
+
 fortuner2 (2014.07.1-0~ppa1) utopic; urgency=medium
 
   * New upstream release

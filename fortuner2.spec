@@ -7,8 +7,8 @@
 %global directories PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
 
 Name:          fortuner2
-Version:       2014.07.1
-Release:       0.2%{?dist}
+Version:       2014.07.2
+Release:       0.1%{?dist}
 Summary:       Shows fortunes as notifications
 License:       GPLv3+
 
@@ -55,6 +55,7 @@ make install DESTDIR=%{buildroot} %{directories}
 %files -f %{name}.lang
 %doc README.md COPYING doc/fortuner2.conf.ex
 %{_bindir}/*
+%{_datadir}/appdata/*
 %{_datadir}/applications/*
 %{_datadir}/icons/hicolor/*
 %{_mandir}/man6/*

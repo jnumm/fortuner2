@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Juhani Numminen <juhaninumminen0@gmail.com>
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fortuner2\n"
 "Report-Msgid-Bugs-To: https://github.com/jnumm/fortuner2/issues\n"
-"POT-Creation-Date: 2014-07-13 19:21+0300\n"
+"POT-Creation-Date: 2014-11-15 15:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,12 +36,12 @@ msgstr ""
 msgid "Today's Fortune"
 msgstr ""
 
-#: fortuner2.in:87
+#: fortuner2.in:80
 #, sh-format
 msgid "${progname}: Unknown argument: ${arg}"
 msgstr ""
 
-#: fortuner2.in:98
+#: fortuner2.in:91
 #, sh-format
 msgid "${progname}: No fortune to show!"
 msgstr ""

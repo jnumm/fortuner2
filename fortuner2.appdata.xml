@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application>
-  <id type="desktop">fortuner2.desktop</id>
+<!-- Copyright 2014 Juhani Numminen <juhaninumminen0@gmail.com> -->
+<component type="desktop">
+  <id>fortuner2.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <description>
@@ -10,10 +11,13 @@
     </p>
   </description>
   <screenshots>
-    <screenshot type="default" width="580" height="170">
-      https://cloud.githubusercontent.com/assets/1366407/3638347/39786ba8-1044-11e4-846f-0f113cf8ecc6.png
+    <screenshot type="default">
+      <image>https://cloud.githubusercontent.com/assets/1366407/3638347/39786ba8-1044-11e4-846f-0f113cf8ecc6.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://github.com/fortuner2/</url>
+  <url type="homepage">https://github.com/fortuner2</url>
+  <provides>
+    <binary>fortuner2</binary>
+  </provides>
   <updatecontact>juhaninumminen0@gmail.com</updatecontact>
-</application>
+</component>

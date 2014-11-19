@@ -1,13 +1,12 @@
 # RPM spec file for fortuner2.
-# It's written by upstream and tries to be usable for many distros.
-
-# It should be updated at every release.
+# It's written by upstream and tries to be usable for many distros and
+# should be updated at every release.
 
 # Installation directories for the Makefile of the package.
-%global directories PREFIX=%{_prefix} SYSCONFDIR=%{_sysconfdir}
+%global fortuner2_directories prefix=%{_prefix} sysconfdir=%{_sysconfdir}
 
 Name:          fortuner2
-Version:       2014.07.2
+Version:       2014.11.1
 Release:       0.1%{?dist}
 Summary:       Shows fortunes as notifications
 License:       GPLv3+
@@ -46,10 +45,10 @@ script.
 %setup -q
 
 %build
-make %{directories}
+make %{?_smp_mflags} %{fortuner2_directories}
 
 %install
-make install DESTDIR=%{buildroot} %{directories}
+make install DESTDIR=%{buildroot} %{fortuner2_directories}
 %find_lang %{name}
 
 %files -f %{name}.lang
@@ -60,7 +59,6 @@ make install DESTDIR=%{buildroot} %{directories}
 %{_datadir}/icons/hicolor/*
 %{_mandir}/man6/*
 
-%if 0%{?fedora}
 %post
 /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
@@ -72,4 +70,3 @@ fi
 
 %posttrans
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-%endif

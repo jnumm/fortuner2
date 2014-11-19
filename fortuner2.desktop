@@ -8,7 +8,6 @@ Comment[fi]=Näyttää satunnaisen mietelauseen sisältävän ilmoituksen
 Comment[fr]=Affiche une notification contenant une citation aléatoire
 Comment[pt_BR]=Mostra notificação com um provérbio aleatório
 Icon=fortuner2
-TryExec=fortuner2
 Exec=fortuner2
 Terminal=false
 Categories=Game;Amusement;

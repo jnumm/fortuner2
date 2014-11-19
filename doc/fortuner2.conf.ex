@@ -14,9 +14,5 @@
 
 # Notify command. Here you can specify parameters for the notify sending
 # program.
-# With notify-send < 0.7.5
 #notifycmd="notify-send --icon=fortuner2 --urgency=low"
-# With notify-send >= 0.7.5
-#notifycmd="notify-send --icon=fortuner2 --urgency=low --app-name=Fortuner2"
-
 #notifycmd="$notifycmd --expire-time=10000"

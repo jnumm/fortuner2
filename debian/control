@@ -2,9 +2,8 @@ Source: fortuner2
 Section: games
 Priority: optional
 Maintainer: Juhani Numminen <juhaninumminen0@gmail.com>
-Build-Depends: debhelper (>= 9),
-               desktop-file-utils
-Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
 Homepage: https://github.com/jnumm/fortuner2/
 Vcs-Git: https://github.com/jnumm/fortuner2 -b debian
 Vcs-Browser: https://github.com/jnumm/fortuner2/

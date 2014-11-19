@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 
 # Installation directories for the Makefile of the package.
-directories = PREFIX=/usr BINDIR=/usr/games SYSCONFDIR=/etc
+directories = prefix=/usr bindir=/usr/games sysconfdir=/etc
 
 %:
-	dh $@
+	dh $@ --parallel
 
 override_dh_auto_build:
 	dh_auto_build -- $(directories)

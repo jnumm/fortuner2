@@ -1,3 +1,16 @@
+fortuner2 (2014.11.1-0~ppa1) vivid; urgency=medium
+
+  * New upstream release
+  * debian/control:
+    - Bump Standards-Version
+    - Drop Build-Dep on desktop-file-utils which isn’t needed anymore
+  * debian/rules:
+    - Build in parallel
+    - Update installation path parameter names
+  * debian/gbp.conf: Drop “pristine-tar = True”
+
+ -- Juhani Numminen <juhaninumminen0@gmail.com>  Wed, 19 Nov 2014 16:30:00 +0200
+
 fortuner2 (2014.07.2-0~ppa1) utopic; urgency=medium
 
   * New upstream release

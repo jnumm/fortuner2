@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/jnumm/fortuner2/
 
 Package: fortuner2
 Architecture: all
-Depends: fortune,
+Depends: fortune-mod,
          fortunes-min | fortune-cookie-db,
          gettext-base,
          libnotify-bin,

@@ -2,7 +2,7 @@
 
 pkgname=fortuner2
 pkgver=2014.11.1
-pkgrel=1
+pkgrel=2
 pkgdesc='Shows a fortune as a notification'
 arch=('any')
 url='https://github.com/jnumm/fortuner2'
@@ -21,6 +21,7 @@ package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   make DESTDIR="${pkgdir}" prefix=/usr sysconfdir=/etc install
 
-  install -Dm644 README.md doc/fortuner2.conf.ex \
-      "${pkgdir}/usr/share/doc/${pkgname}/"
+  install -d "${pkgdir}/usr/share/doc/${pkgname}/"
+  install -m644 README.md doc/fortuner2.conf.ex \
+    "${pkgdir}/usr/share/doc/${pkgname}/"
 }

@@ -7,7 +7,7 @@
 
 Name:          fortuner2
 Version:       2014.11.1
-Release:       0.1%{?dist}
+Release:       0.2%{?dist}
 Summary:       Shows fortunes as notifications
 License:       GPLv3+
 
@@ -24,11 +24,16 @@ Group:         Amusements/Games
 URL:           https://github.com/jnumm/fortuner2
 Source:        https://github.com/jnumm/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildArch:     noarch
-BuildRequires: desktop-file-utils
-BuildRequires: gettext
+BuildRequires: /usr/bin/msgfmt
+
+%if 0%{?suse_version}
+Requires:      fortune
+%else
 Requires:      fortune-mod
-Requires:      gettext
-Requires:      libnotify
+%endif
+
+Requires:      /usr/bin/gettext.sh
+Requires:      /usr/bin/notify-send
 
 %description
 fortuner2 displays a notification containing a random adage. The adages

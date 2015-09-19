@@ -51,8 +51,7 @@ if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs" ]; then
     . "${XDG_CONFIG_HOME:-${HOME}/.config}/user-dirs.dirs"
 fi
 
-if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf" ]
-then
+if [ -f "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf" ]; then
     . "${XDG_CONFIG_HOME:-${HOME}/.config}/${progname}/${progname}.conf"
 fi
 
